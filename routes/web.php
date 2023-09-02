@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('tasks/create', [TaskController::class, 'new'])->name('tasks.new');
+Route::post('tasks/new', [TaskController::class, 'create'])->name('tasks.create');
+
 
 Route::get('/', function () {
     return view('welcome');
