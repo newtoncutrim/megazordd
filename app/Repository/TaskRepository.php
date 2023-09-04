@@ -13,11 +13,14 @@ class TaskRepository implements TaskInterface {
         return $this->model->all();
     }
 
-    public function findOne(){
-
+    public function findOne($id){
+        return $this->model->find($id);
     }
-    public function new(){
-        return $this->model->create();
+    public function new($data){
+        if(!$this->model->create($data)){
+            return redirect()->back();
+        }
+        $this->model->save();
     }
 
     public function edit() {

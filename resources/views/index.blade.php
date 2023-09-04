@@ -7,6 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    {{$data}}
+    <table>
+        <thead>
+            <th>Titulo</th>
+            <th>Descricao</th>
+            <th>Data</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+
+            @foreach ($datas as $data)
+                <tr>
+                    <td>{{$data['title']}}</td>
+                    <td>{{$data['description']}}</td>
+                    <td>{{$data['due_date']}}</td>
+                    <td>
+                        <a href="{{route('tasks.edit', $data['id'])}}">Editar</a>
+                        <a href="">Excluir</a>
+                    </td>
+                </tr>
+
+            @endforeach
+
+        </tbody>
+    </table>
 </body>
 </html>

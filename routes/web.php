@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('tasks/create', [TaskController::class, 'new'])->name('tasks.new');
 Route::post('tasks/new', [TaskController::class, 'create'])->name('tasks.create');
+Route::get('tasks/edit/{id}', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::post('tasks/edit/{id}', [TaskController::class, 'update'])->name('tasks.update');
 
-
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Route::fallback(function(){
     return view('404');

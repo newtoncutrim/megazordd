@@ -13,11 +13,12 @@ class TaskService {
         return $this->repository->findAll();
     }
 
-    public function findOne(){
-
+    public function findOne($id){
+        return  $this->repository->findOne($id);
     }
-    public function new(){
-        return $this->repository->new();
+
+    public function new($data){
+        return $this->repository->new($data);
     }
 
     public function edit() {

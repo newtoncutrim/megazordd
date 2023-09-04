@@ -13,9 +13,9 @@ class TaskController extends Controller
     {}
 
     public function index(){
-        $data = $this->service->findAll();
+        $datas = $this->service->findAll();
 
-        return view('index', compact('data'));
+        return view('index', compact('datas'));
 
     }
     public function new(){
@@ -23,12 +23,15 @@ class TaskController extends Controller
     }
 
     public function create(TaskCreateRequest $request){
-        dd($request);
-        return $this->service->new($request);
+        $data = $request->all();
+        $this->service->new($data);
+
+        return redirect()->route('tasks.index');
     }
 
-    public function edit() {
-
+    public function edit($id) {
+        $datas = $this->service->findOne($id);
+        return view('edit', compact('datas'));
     }
     public function update(){
 
