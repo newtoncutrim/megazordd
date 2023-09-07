@@ -20,18 +20,28 @@ class TaskRepository implements TaskInterface {
         if(!$this->model->create($data)){
             return redirect()->back();
         }
-        $this->model->save();
+
     }
 
     public function edit() {
 
     }
 
-    public function update(){
-
+    public function update($id, $request){
+        if(!$task = $this->model->find($id)){
+            return 'nao atualizado';
+        }
+        $task->update($request);
+        return redirect()->route('tasks.index');
     }
 
-    public function delete(){
+    public function delete($id){
+        if(!$task = $this->model->find($id)){
+            return redirect()->back();
+        }
+        $task->delete();
 
+
+        return redirect()->route('tasks.index');
     }
 }

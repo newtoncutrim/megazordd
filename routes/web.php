@@ -17,7 +17,11 @@ Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('tasks/create', [TaskController::class, 'new'])->name('tasks.new');
 Route::post('tasks/new', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('tasks/edit/{id}', [TaskController::class, 'edit'])->name('tasks.edit');
-Route::post('tasks/edit/{id}', [TaskController::class, 'update'])->name('tasks.update');
+Route::put('tasks/edit/{id}', [TaskController::class, 'update'])->name('tasks.update');
+
+Route::get('tasks/delete/{id}', [TaskController::class, 'detalhe'])->name('tasks.detalhe');
+Route::delete('tasks/delete/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
+
 
 /* Route::get('/', function () {
     return view('welcome');

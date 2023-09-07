@@ -25,11 +25,11 @@ class TaskService {
 
     }
 
-    public function update(){
-
+    public function update($id, $request){
+        return $this->repository->update($id, $request);
     }
 
-    public function destroy(){
-
+    public function destroy($id){
+        return $this->repository->delete($id);
     }
 }

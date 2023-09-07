@@ -33,11 +33,20 @@ class TaskController extends Controller
         $datas = $this->service->findOne($id);
         return view('edit', compact('datas'));
     }
-    public function update(){
+    public function update($id, TaskCreateRequest $request){
+        $data = $request->all();
+        return $this->service->update($id, $data);
+    }
+
+    public function detalhe($id){
+        $datas = $this->service->findOne($id);
+        return view('delete', compact('datas'));
 
     }
 
-    public function delete(){
-
+    public function delete($id){
+        $this->service->destroy($id);
+        $datas = $this->service->findAll();
+        return redirect()->route('tasks.index', compact('datas'));
     }
 }

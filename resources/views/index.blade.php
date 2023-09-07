@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1><a href="{{route('tasks.new')}}">Criar tarefa</a></h1>
     <table>
         <thead>
             <th>Titulo</th>
@@ -23,7 +24,7 @@
                     <td>{{$data['due_date']}}</td>
                     <td>
                         <a href="{{route('tasks.edit', $data['id'])}}">Editar</a>
-                        <a href="">Excluir</a>
+                        <a href="{{route('tasks.detalhe', $data['id'])}}">Detalhes</a>
                     </td>
                 </tr>
 
