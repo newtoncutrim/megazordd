@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\TaskController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,19 @@ Route::get('tasks/edit/{id}', [TaskController::class, 'edit'])->name('tasks.edit
 Route::put('tasks/edit/{id}', [TaskController::class, 'update'])->name('tasks.update');
 
 Route::get('tasks/delete/{id}', [TaskController::class, 'detalhe'])->name('tasks.detalhe');
+//Route::resource('/tasks','App\\Http\\Controllers\\TasksController')->middleware(['auth']);
 Route::delete('tasks/delete/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
 
+
+Route::get('user/register', [UserController::class, 'register'])->name('user.register');
+
+Route::post('user/signup', [UserController::class, 'signup'])->name('user.signup');
+
+Route::get('user/login', [UserController::class, 'login'])->name('user.login');
+
+/* Route::get('user/sigin', [UserController::class, 'sigin'])->name('user.sigin'); */
+
+Route::post('user/auth', [UserController::class, 'auth'])->name('user.auth');
 
 /* Route::get('/', function () {
     return view('welcome');
