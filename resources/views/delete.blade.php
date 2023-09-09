@@ -5,7 +5,7 @@
     </li>
     <li>
         <label for="user_id">ID do Usuário:</label>
-        <span>{{ $datas['id'] ?? 'N/A' }}</span>
+        <span>{{ auth()->user()->id ?? 'N/A' }}</span>
     </li>
     <li>
         <label for="due_date">Data de Vencimento:</label>

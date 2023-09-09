@@ -16,20 +16,17 @@ class TaskController extends Controller
 
 
     public function index(){
-        $datas = $this->service->findAll();
-        $datas->toArray();
+        $user = auth()->user();
+        $tasks = $user->tasks;
 
-        foreach ($datas as $data) {
-            $data->due_date = $this->dataFormat($data->due_date);
+        foreach ($tasks as $task) {
+            $task->due_date = $this->dataFormat($task->due_date);
         }
-        /*$datas->toArray();
-        $dataFormat = $this->dataFormat($datas[0]['due_date']);
-        $datas[1]['dataFormat'] = $dataFormat; */
 
-        /*$datas[0]['dataFormat'] = Carbon::parse($datas[0]['due_date'])->format('d/m/Y'); */
-        return view('index', compact(['datas']));
-
+        return view('index', compact(['tasks']));
     }
+
+
     public function new(){
         return view('create');
     }
@@ -48,6 +45,7 @@ class TaskController extends Controller
 
         return view('edit', compact(['datas']));
     }
+
     public function update(string $id, TaskCreateRequest $request){
         $data = $request->all();
        /*  dd($data['due_date']); */

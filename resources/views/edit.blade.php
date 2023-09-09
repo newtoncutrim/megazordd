@@ -5,7 +5,7 @@
     @method('PUT')
     <label for="title">Titulo</label>
     <input id="title" type="text" name="title" value="{{$datas['title']}}">
-    <input type="number" name="user_id" value="{{$datas['id']}}">
+    <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
     <input type="date" name="due_date" id="due_date" value="{{ date('Y-m-d', strtotime($datas['dataFormat'])) }}">
     <label for="description">Descricao</label>
     <textarea name="description" id="description" cols="30" rows="10">{{$datas['description']}}</textarea>

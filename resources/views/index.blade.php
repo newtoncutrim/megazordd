@@ -20,14 +20,14 @@
         </thead>
         <tbody>
 
-            @foreach ($datas as $data)
+            @foreach ($tasks as $task)
                 <tr>
-                    <td>{{$data['title']}}</td>
-                    <td>{{$data['description']}}</td>
-                    <td>{{$data['due_date']}}</td>
+                    <td>{{$task['title']}}</td>
+                    <td>{{$task['description']}}</td>
+                    <td>{{$task['due_date']}}</td>
                     <td>
-                        <a href="{{route('tasks.edit', $data['id'])}}">Editar</a>
-                        <a href="{{route('tasks.detalhe', $data['id'])}}">Detalhes</a>
+                        <a href="{{route('tasks.edit', $task['id'])}}">Editar</a>
+                        <a href="{{route('tasks.detalhe', $task['id'])}}">Detalhes</a>
                     </td>
                 </tr>
 
