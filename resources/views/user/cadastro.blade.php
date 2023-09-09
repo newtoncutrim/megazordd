@@ -36,7 +36,7 @@
             <div class="col-md-8">
               <div class="mb-4">
               <h3>Cadastro</h3>
-              <p class="mb-4">Preencha a baixo os campos, senha min 8 caracteres.</p>
+              <p class="mb-4">Preencha a baixo os campos <span>ja possui cadastro? click <a href="{{route('user.login')}}">aqui</a></span></p>
             </div>
             @if ($errors->any())
             <div class="alert alert-danger">

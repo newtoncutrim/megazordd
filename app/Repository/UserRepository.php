@@ -9,12 +9,10 @@ class UserRepository implements UserInterface {
     public function __construct(protected User $model)
     {}
 
-    public function register($request){
-        $data = $request->all();
-        if($this->model->create($data)){
-            return redirect()->route('user.login');
-        }
-        return 'nao cadastrado';
+    public function register($data){
+
+        $this->model->create($data);
+        return redirect()->route('user.login');
 
     }
 }

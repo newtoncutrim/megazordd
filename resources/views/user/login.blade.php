@@ -35,7 +35,7 @@
             <div class="col-md-8">
               <div class="mb-4">
               <h3>Sign In</h3>
-              <p class="mb-4">Preecha os campos a baixo.</p>
+              <p class="mb-4">Preecha os campos a baixo. <span>Não possui cadastro? <a href="{{route('user.register')}}">Cadastrar</a></span></p>
             </div>
             @if ($errors->any())
             <div class="alert alert-danger">

@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="{{route('user.logout')}}">Sair</a>
     <h1><a href="{{route('tasks.new')}}">Criar tarefa</a></h1>
+    <p>Olá {{auth()->user()->name}}</p>
+    <p>id usuario: {{auth()->user()->id}}</p>
     <table>
         <thead>
             <th>Titulo</th>

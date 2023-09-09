@@ -9,6 +9,10 @@ class UserService {
     {}
 
     public function register($request){
-        return $this->repository->register($request);
+        if(!$data = $request->all()){
+            return 'nao cadastrado';
+        }
+
+        return $this->repository->register($data);
     }
 }

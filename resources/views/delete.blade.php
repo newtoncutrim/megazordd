@@ -9,7 +9,7 @@
     </li>
     <li>
         <label for="due_date">Data de Vencimento:</label>
-        <span>{{ $datas['due_date'] ?? 'N/A' }}</span>
+        <span>{{ $datas['dataFormat'] ?? 'N/A' }}</span>
     </li>
     <li>
         <label for="description">Descrição:</label>

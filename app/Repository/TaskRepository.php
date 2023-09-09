@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Models\Task;
 use App\Repository\TaskInterface;
+use Illuminate\Support\Facades\DB;
 
 class TaskRepository implements TaskInterface {
     public function __construct(protected Task $model)
@@ -17,9 +18,8 @@ class TaskRepository implements TaskInterface {
         return $this->model->find($id);
     }
     public function new($data){
-        if(!$this->model->create($data)){
-            return redirect()->back();
-        }
+        $this->model->create($data);
+        return redirect()->back();
 
     }
 
@@ -28,20 +28,45 @@ class TaskRepository implements TaskInterface {
     }
 
     public function update($id, $request){
-        if(!$task = $this->model->find($id)){
-            return 'nao atualizado';
-        }
+        $task = $this->model->find($id);
         $task->update($request);
+
         return redirect()->route('tasks.index');
     }
 
     public function delete($id){
-        if(!$task = $this->model->find($id)){
-            return redirect()->back();
-        }
+        $task = $this->model->find($id);
         $task->delete();
 
+        $records = DB::table('tasks')->get();
+
+        // Reordena os IDs
+        $newId = 1;
+        foreach ($records as $record) {
+            DB::table('tasks')->where('id', $record->id)->update(['id' => $newId]);
+        $newId++;
+    }
 
         return redirect()->route('tasks.index');
     }
+
+
 }
+
+
+/* public function delete($id) {
+    // Exclui o registro
+    $this->service->destroy($id);
+
+    // Recupera todos os registros após a exclusão
+    $records = DB::table('tasks')->get();
+
+    // Reordena os IDs
+    $newId = 1;
+    foreach ($records as $record) {
+        DB::table('tasks')->where('id', $record->id)->update(['id' => $newId]);
+        $newId++;
+    }
+
+    return redirect()->route('tasks.index');
+} */
