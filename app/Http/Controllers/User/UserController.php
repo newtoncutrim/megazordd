@@ -18,6 +18,7 @@ class UserController extends Controller
     }
 
     public function signup(UserCreateRequest $request){
+
         return $this->service->register($request);
     }
 

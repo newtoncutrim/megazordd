@@ -23,16 +23,16 @@ Route::middleware(['auth'])->group(function(){
     Route::put('tasks/edit/{id}', [TaskController::class, 'update'])->name('tasks.update');
     Route::get('tasks/delete/{id}', [TaskController::class, 'detalhe'])->name('tasks.detalhe');
     Route::delete('tasks/delete/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
-    Route::post('user/signup', [UserController::class, 'signup'])->name('user.signup');
-    /* Route::get('user/sigin', [UserController::class, 'sigin'])->name('user.sigin'); */
-    Route::post('user/auth', [UserController::class, 'auth'])->name('user.auth');
+
 });
 
 
 
 
 
-
+Route::post('user/signup', [UserController::class, 'signup'])->name('user.signup');
+    /* Route::get('user/sigin', [UserController::class, 'sigin'])->name('user.sigin'); */
+Route::post('user/auth', [UserController::class, 'auth'])->name('user.auth');
 Route::get('user/login', [UserController::class, 'login'])->name('user.login');
 Route::get('user/register', [UserController::class, 'register'])->name('user.register');
 
