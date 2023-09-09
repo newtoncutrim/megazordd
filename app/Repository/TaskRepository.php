@@ -54,19 +54,3 @@ class TaskRepository implements TaskInterface {
 }
 
 
-/* public function delete($id) {
-    // Exclui o registro
-    $this->service->destroy($id);
-
-    // Recupera todos os registros após a exclusão
-    $records = DB::table('tasks')->get();
-
-    // Reordena os IDs
-    $newId = 1;
-    foreach ($records as $record) {
-        DB::table('tasks')->where('id', $record->id)->update(['id' => $newId]);
-        $newId++;
-    }
-
-    return redirect()->route('tasks.index');
-} */
