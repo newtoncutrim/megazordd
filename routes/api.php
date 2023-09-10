@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\TaskApiController;
+use App\Http\Controllers\Api\UserApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,5 @@ Destroy: DELETE /api/tasks/{id} - Remove um recurso existente (tarefa) do banco 
 });
  */
 Route::apiResource('/tasks', TaskApiController::class);
+
+Route::apiResource('/users', UserApiController::class);

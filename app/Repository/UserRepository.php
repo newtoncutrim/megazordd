@@ -10,7 +10,6 @@ class UserRepository implements UserInterface {
     {}
 
     public function register($data){
-
         $this->model->create($data);
         return redirect()->route('user.login');
 

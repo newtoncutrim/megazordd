@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserCreateRequest;
 use App\Services\UserService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserApiController extends Controller
 {
@@ -13,17 +16,22 @@ class UserApiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() /* JsonResponse */
     {
-        //
+        /* $users = $this->service->findAll();
+        return response()->json($users); */
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
-        //
+        $user = $this->service->register($request);
+        if (!$user) {
+            return response()->json(["error" => "Failed to create the task"], Response::HTTP_BAD_REQUEST);
+        }
+        return response()->json(["message" => "User created successfully", "data" => $user], Response::HTTP_CREATED);
     }
 
     /**
@@ -37,7 +45,7 @@ class UserApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserCreateRequest $request, string $id)
     {
         //
     }
