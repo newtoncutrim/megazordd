@@ -55,7 +55,7 @@
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <div class="input-group">
+                <div    class="input-group">
                     <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}" aria-describedby="password-toggle">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="password-toggle">

@@ -38,7 +38,7 @@ class UserController extends Controller
         }
 
         return redirect()->back()->withErrors(['Usuario ou senha inavlida.']);
-        //        if (auth()->attempt(['email' => '<EMAIL>', 'password'=> <PASSWORD>])) {
+
     }
 
     public function logout(Request $request){

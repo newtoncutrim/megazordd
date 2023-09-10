@@ -44,8 +44,6 @@ class TaskService {
 
     public function dataFormat($data){
 
-        $datas = Carbon::parse($data)->format('d/m/Y');
-
-        return $datas;
+        return Carbon::parse($data)->format('d/m/Y');
     }
 }

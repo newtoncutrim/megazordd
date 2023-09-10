@@ -41,27 +41,31 @@ class TaskController extends Controller
     public function edit(string $id) {
         $datas = $this->service->findOne($id);
 
-        $datas['dataFormat'] = self::dataFormat($datas->due_date);
+        $datas['dataFormat'] = $this->dataFormat($datas->due_date);
 
         return view('edit', compact(['datas']));
     }
 
     public function update(string $id, TaskCreateRequest $request){
         $data = $request->all();
-       /*  dd($data['due_date']); */
         return $this->service->update($id, $data);
     }
 
     public function detalhe($id){
         $datas = $this->service->findOne($id);
-        $datas['dataFormat'] = self::dataFormat($datas->due_date);
+        $datas['dataFormat'] = $this->dataFormat($datas->due_date);
         return view('delete', compact('datas'));
 
     }
 
     public function delete($id){
         $this->service->destroy($id);
-        $datas = $this->service->findAll();
+        $datas = $this->service->findAll()->sortBy('id')->values();
+
+        foreach ($datas as $index => $task) {
+            $task->id = $index + 1;
+            $task->save();
+        }
 
         return redirect()->route('tasks.index', compact('datas'));
     }
