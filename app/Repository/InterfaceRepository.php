@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-interface TaskInterface
+interface InterfaceRepository
 {
     public function findAll();
     public function findOne($id);

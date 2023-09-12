@@ -13,6 +13,10 @@ class UserService {
             return 'nao cadastrado';
         }
 
-        return $this->repository->register($data);
+        return $this->repository->new($data);
+    }
+
+    public function findAll(){
+        return $this->repository->findAll();
     }
 }

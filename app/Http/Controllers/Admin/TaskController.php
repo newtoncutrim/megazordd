@@ -48,7 +48,9 @@ class TaskController extends Controller
 
     public function update(string $id, TaskCreateRequest $request){
         $data = $request->all();
-        return $this->service->update($id, $data);
+        $this->service->update($id, $data);
+
+        return redirect()->route('tasks.index');
     }
 
     public function detalhe($id){

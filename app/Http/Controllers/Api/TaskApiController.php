@@ -83,7 +83,7 @@ class TaskApiController extends Controller
         foreach ($tasks as $index => $task) {
         $task->order = $index + 1;
         $task->save();
-    }
+        }
         return response()->json(["message" => "Task deleted successfully"], Response::HTTP_OK);
     }
 }

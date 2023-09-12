@@ -18,8 +18,8 @@ class UserApiController extends Controller
      */
     public function index() /* JsonResponse */
     {
-        /* $users = $this->service->findAll();
-        return response()->json($users); */
+        $users = $this->service->findAll();
+        return response()->json($users);
     }
 
     /**
