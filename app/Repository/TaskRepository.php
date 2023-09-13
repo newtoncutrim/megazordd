@@ -3,8 +3,7 @@
 namespace App\Repository;
 
 use App\Models\Task;
-use App\Repository\TaskInterface;
-use Illuminate\Support\Facades\DB;
+use App\Repository\Contract\AbstractRepository;
 
 class TaskRepository extends AbstractRepository {
     public function __construct()

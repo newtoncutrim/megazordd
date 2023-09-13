@@ -58,7 +58,6 @@ class TaskApiController extends Controller
     {
 
         $this->service->updateTask($request->all(), $id);
-
         $task = $this->service->findOne($id);
         return response()->json(["message" => "Task updated successfully", "data" => $task], Response::HTTP_OK);
     }

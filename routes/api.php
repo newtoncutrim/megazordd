@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\TaskApiController;
-use App\Http\Controllers\Api\UserApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\TaskApiController;
+use App\Http\Controllers\Api\UserApiController;
+use App\Http\Controllers\Api\Auth\UserAuthApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,14 +28,16 @@ Update: PUT/PATCH /api/tasks/{id} - Atualiza um recurso existente (tarefa) no ba
 Destroy: DELETE /api/tasks/{id} - Remove um recurso existente (tarefa) do banco de dados.
 */
 
-/* Route::middleware('auth')->prefix('api')->group(function(){
-    Route::apiResource('tasks', [TaskApiController::class]);
+Route::middleware('auth:sanctum')->prefix('api')->group(function(){
+    /* Route::apiResource('tasks', [TaskApiController::class]); */
 });
- */
 
-Route::apiResource('/tasks', TaskApiController::class);
 
+Route::apiResource('/tasks', TaskApiController::class)->middleware('auth:sanctum');
 Route::apiResource('/users', UserApiController::class);
 
 
+Route::post('auth/login', [UserAuthApiController::class, 'login']);
+
 /* tokem jwt api */
+/* http://localhost:8989/api/auth/login */

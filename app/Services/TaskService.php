@@ -28,9 +28,9 @@ class TaskService {
 
     }
 
-    public function updateTask($id, $request){
-
-        if (!$this->findOne($id)) {
+    public function updateTask($request, string $id){
+        $task = $this->findOne($id);
+        if (!$task) {
             throw new \Exception('Registro não encontrado');
         }
         return $this->repository->update($id, $request);
