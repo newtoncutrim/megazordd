@@ -25,15 +25,28 @@ abstract class AbstractRepository implements InterfaceRepository {
 
     }
 
-    public function update($id, $request){
-        $task = $this->model->find($id);
-        $task->update($request);
-        /* DB::transaction(); */
+    public function update($id, $request) {
+        $data = $this->model->find($id);
+
+        if (!$data) {
+            throw new \Exception("Registro não encontrado");
+        }
+        $data->update($request);
+
+        return $data->save();
     }
 
+
+        /* DB::transaction(); */
+
     public function delete($id){
-        $task = $this->model->find($id);
-        $task->delete();
+        $data = $this->model->find($id);
+
+        if (!$data) {
+            throw new \Exception("Registro não encontrado");
+        }
+
+        $data->delete();
 
         $records = $this->model->get();
 
@@ -42,3 +55,5 @@ abstract class AbstractRepository implements InterfaceRepository {
         return $records;
     }
 }
+
+/* @php artisan vendor:publish --tag=laravel-assets --ansi --force */

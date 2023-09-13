@@ -3,10 +3,11 @@
 namespace App\Services;
 
 use Carbon\Carbon;
-use App\Repository\TaskInterface;
+
+use App\Repository\TaskRepository;
 
 class TaskService {
-    public function __construct(protected TaskInterface $repository)
+    public function __construct(protected TaskRepository $repository)
     {}
 
     public function findAll(){
@@ -27,11 +28,12 @@ class TaskService {
 
     }
 
-    public function update($id, $request){
-        if($request && $id){
-            return $this->repository->update($id, $request);
+    public function updateTask($id, $request){
+
+        if (!$this->findOne($id)) {
+            throw new \Exception('Registro não encontrado');
         }
-        return 'nao atualizado';
+        return $this->repository->update($id, $request);
     }
 
     public function destroy($id){

@@ -39,7 +39,8 @@ class UserApiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = $this->service->findOne($id);
+        return response()->json($user);
     }
 
     /**
@@ -47,14 +48,19 @@ class UserApiController extends Controller
      */
     public function update(UserCreateRequest $request, string $id)
     {
-        //
+        $this->service->updateUser($request->all(), $id);
+        $data = $this->service->findOne($id);
+        return response()->json(["message" => "User updated successfully", "data" => $data], Response::HTTP_OK);
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $this->service->delete($id);
+
+        return response()->json(["message" => "Task deleted successfully"], Response::HTTP_OK);
     }
 }

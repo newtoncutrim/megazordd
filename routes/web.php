@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\Admin\TaskController;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,35 +11,28 @@ use App\Http\Controllers\Admin\TaskController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::middleware(['auth'])->prefix('tasks')->group(function(){
-    Route::get('', [TaskController::class, 'index'])->name('tasks.index');
-    Route::get('create', [TaskController::class, 'new'])->name('tasks.new');
-    Route::post('new', [TaskController::class, 'create'])->name('tasks.create');
-    Route::get('edit/{id}', [TaskController::class, 'edit'])->name('tasks.edit');
-    Route::put('edit/{id}', [TaskController::class, 'update'])->name('tasks.update');
-    Route::get('delete/{id}', [TaskController::class, 'detalhe'])->name('tasks.detalhe');
-    Route::delete('delete/{id}', [TaskController::class, 'delete'])->name('tasks.delete');
-
-});
-
-
-
-
-
-Route::post('user/signup', [UserController::class, 'signup'])->name('user.signup');
-Route::post('user/auth', [UserController::class, 'auth'])->name('user.auth');
-Route::get('user/login', [UserController::class, 'login'])->name('user.login');
-Route::get('user/register', [UserController::class, 'register'])->name('user.register');
-Route::get('user/logout', [UserController::class, 'logout'])->name('user.logout');
-
 Route::get('/', function () {
-    return view('user.login');
+    return Inertia::render('index', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
-Route::fallback(function(){
-    return view('404');
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__.'/auth.php';

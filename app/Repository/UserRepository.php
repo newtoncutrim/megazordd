@@ -3,11 +3,10 @@
 namespace App\Repository;
 
 use App\Models\User;
-use Illuminate\Http\Response;
 
 class UserRepository extends AbstractRepository {
-    public function __construct(protected User $model)
+    public function __construct()
     {
-        $this->model = $model;
+        $this->model = new User();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use App\Rules\PasswordComplexRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,11 +23,23 @@ class UserCreateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users,email',
             'password' => ['required', new PasswordComplexRule],
         ];
+
+        if($this->method() === 'PUT' || $this->method() === 'PATCH'){
+
+            $rules['email'] = [
+                'required',
+                'min:3',
+                /* "unique:supports,subject,{$this->id},id" */
+                Rule::unique('users')->ignore($this->user ?? $this->id)
+
+            ];
+        }
+        return $rules;
     }
 
     public function messages(): array

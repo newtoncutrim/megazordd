@@ -54,15 +54,12 @@ class TaskApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): JsonResponse
+    public function update(TaskCreateRequest $request, string $id): JsonResponse
     {
+
+        $this->service->updateTask($request->all(), $id);
+
         $task = $this->service->findOne($id);
-
-        if (!$task) {
-            return response()->json(["error" => "Task not found"], Response::HTTP_NOT_FOUND);
-        }
-
-        $task->update($request->all());
         return response()->json(["message" => "Task updated successfully", "data" => $task], Response::HTTP_OK);
     }
 
@@ -79,11 +76,6 @@ class TaskApiController extends Controller
 
         $this->service->destroy($id);
 
-        $tasks = $this->service->findAll()->sortBy('order')->values();
-        foreach ($tasks as $index => $task) {
-        $task->order = $index + 1;
-        $task->save();
-        }
         return response()->json(["message" => "Task deleted successfully"], Response::HTTP_OK);
     }
 }
