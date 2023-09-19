@@ -7,6 +7,7 @@ use App\Services\UserService;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -14,7 +15,7 @@ class UserController extends Controller
     {}
 
     public function register(){
-        return view('user.cadastro');
+        return Inertia::render("Users/Teste");
     }
 
     public function signup(UserCreateRequest $request){
