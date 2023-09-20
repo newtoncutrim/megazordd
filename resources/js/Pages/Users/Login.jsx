@@ -1,5 +1,5 @@
 import React from "react";
-import "./Teste.css";
+import "../Css/Login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFacebookF,
@@ -7,7 +7,7 @@ import {
     faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 
-const Teste = () => {
+const Login = () => {
     const handleSignUpClick = () => {
         container.classList.add("right-panel-active");
     };
@@ -20,7 +20,7 @@ const Teste = () => {
         <div>
             <div className="container" id="container">
                 <div className="form-container sign-up-container">
-                    <form action="#">
+                    <form action="#" method="Post">
                         <h1>Criar uma conta</h1>
                         <div className="social-container">
                             <a href="#" className="social">
@@ -43,7 +43,7 @@ const Teste = () => {
                     </form>
                 </div>
                 <div className="form-container sign-in-container">
-                    <form action="#">
+                    <form action="#" method="#">
                         <h1>Entrar</h1>
                         <div className="social-container">
                             <a href="#" className="social">
@@ -99,4 +99,4 @@ const Teste = () => {
         </div>
     );
 };
-export default Teste;
+export default Login;

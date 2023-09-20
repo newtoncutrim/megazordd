@@ -15,7 +15,7 @@ class UserController extends Controller
     {}
 
     public function register(){
-        return Inertia::render("Users/Teste");
+        return Inertia::render("Users/Login");
     }
 
     public function signup(UserCreateRequest $request){
