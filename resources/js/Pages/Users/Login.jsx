@@ -1,11 +1,8 @@
 import React from "react";
-import "../Css/Login.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faFacebookF,
-    faGooglePlusG,
-    faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
+import "./Login.css";
+
+import FormCadastro from "./FormCadastro";
+import FormEntrar from "./FormEntrar";
 
 const Login = () => {
     const handleSignUpClick = () => {
@@ -20,48 +17,10 @@ const Login = () => {
         <div>
             <div className="container" id="container">
                 <div className="form-container sign-up-container">
-                    <form action="#" method="Post">
-                        <h1>Criar uma conta</h1>
-                        <div className="social-container">
-                            <a href="#" className="social">
-                                <FontAwesomeIcon icon={faFacebookF} />
-                            </a>
-                            <a href="#" className="social">
-                                <FontAwesomeIcon icon={faGooglePlusG} />
-                            </a>
-                            <a href="#" className="social">
-                                <FontAwesomeIcon icon={faLinkedinIn} />
-                            </a>
-                        </div>
-                        <span>ou use seu e-mail para cadastro</span>
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <button onClick={handleSignInClick}>
-                            Inscrever-se
-                        </button>
-                    </form>
+                    <FormCadastro />
                 </div>
                 <div className="form-container sign-in-container">
-                    <form action="#" method="#">
-                        <h1>Entrar</h1>
-                        <div className="social-container">
-                            <a href="#" className="social">
-                                <FontAwesomeIcon icon={faFacebookF} />
-                            </a>
-                            <a href="#" className="social">
-                                <FontAwesomeIcon icon={faGooglePlusG} />
-                            </a>
-                            <a href="#" className="social">
-                                <FontAwesomeIcon icon={faLinkedinIn} />
-                            </a>
-                        </div>
-                        <span>ou use sua conta</span>
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <a href="#">Esqueceu sua senha?</a>
-                        <button onClick={handleSignUpClick}>Entrar</button>
-                    </form>
+                    <FormEntrar />
                 </div>
                 <div className="overlay-container">
                     <div className="overlay">
