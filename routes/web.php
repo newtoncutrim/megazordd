@@ -39,6 +39,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [UserController::class, 'register']);
 
 
+// função que renderiza o todo
+ Route::get('/todo', function () {
+    return Inertia::render("todo/main/App");
+}); 
+
 
 
 Route::get('user/login', [UserController::class, 'login'])->name('user.login');

@@ -38,7 +38,7 @@ class UserController extends Controller
             return redirect()->intended('tasks');
         }
 
-        return redirect()->back()->withErrors(['Usuario ou senha inavlida.']);
+        return redirect()->back()->withErrors(['Usuario ou senha inválida.']);
 
     }
 

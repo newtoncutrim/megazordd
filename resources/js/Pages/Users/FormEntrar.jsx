@@ -9,12 +9,19 @@ import "./Login.css";
 import React from "react";
 
 const FormEntrar = () => {
-    const handleSignUpClick = () => {
-        container.classList.add("right-panel-active");
-    };
+    // const handleSignUpClick = () => {
+    //     container.classList.add("right-panel-active");
+    // };
+    const [email, setEmail] = React.useState("");
+    const [senha, setSenha] = React.useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log(event);
+    }
 
     return (
-        <form action="#" method="#">
+        <form onSubmit={handleSubmit}>
             <h1>Entrar</h1>
             <div className="social-container">
                 <a href="#" className="social">
@@ -28,11 +35,28 @@ const FormEntrar = () => {
                 </a>
             </div>
             <span>ou use sua conta</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input
+                type="text"
+                placeholder="Email..."
+                id="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+            />
+            <input
+                type="password"
+                placeholder="Password"
+                value={senha}
+                id="senha"
+                onChange={(event) => setSenha(event.target.value)}
+            />
             <a href="#">Esqueceu sua senha?</a>
-            <button onClick={handleSignUpClick}>Entrar</button>
+            <button>Entrar</button>
         </form>
+        // <form action="#" method="#">
+
+        //     <input type="email" placeholder="Email" />
+
+        // </form>
     );
 };
 
