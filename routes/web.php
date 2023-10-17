@@ -40,8 +40,8 @@ Route::get('/', [UserController::class, 'register']);
 
 
 // função que renderiza o todo
- Route::get('/todo', function () {
-    return Inertia::render("todo/main/App");
+ Route::get('/login', function () {
+    return Inertia::render("Login/Login");
 });
 
 
