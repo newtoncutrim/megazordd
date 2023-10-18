@@ -40,9 +40,10 @@ Route::get('/', [UserController::class, 'register']);
 
 
 // função que renderiza o todo
- Route::get('/login', function () {
-    return Inertia::render("Login/Login");
+ Route::get('/', function () {
+    return Inertia::render("Login/Index");
 });
+
 
 
 Route::get('user/login', [UserController::class, 'login'])->name('user.login');
