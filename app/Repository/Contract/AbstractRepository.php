@@ -16,8 +16,8 @@ abstract class AbstractRepository implements InterfaceRepository {
         return $this->model->find($id);
     }
     public function new($data){
-        $this->model->create($data);
-        return redirect()->back();
+
+        return $this->model->create($data);
 
     }
 
