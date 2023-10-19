@@ -27,9 +27,10 @@ class UserApiController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
+        db($request);
         $user = $this->service->register($request);
         if (!$user) {
-            return response()->json(["error" => "Failed to create the task"], Response::HTTP_BAD_REQUEST);
+            return response()->json(["error" => "Failed to create the user"], Response::HTTP_BAD_REQUEST);
         }
         return response()->json(["message" => "User created successfully", "data" => $user], Response::HTTP_CREATED);
     }
