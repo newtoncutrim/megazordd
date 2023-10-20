@@ -12,7 +12,7 @@ class UserService {
         if(!$data = $request->all()){
             return 'nao cadastrado';
         }
-
+        
         return $this->repository->new($data);
     }
 
