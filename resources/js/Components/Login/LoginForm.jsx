@@ -1,8 +1,12 @@
-import Input from "@/Components/Forms/Input";
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "@/Components/Forms//Button";
 import useForm from "@/Hooks/useForm";
+import Input from "@/Components/Forms/Input";
+import Button from "@/Components/Forms//Button";
+import Error from "@/Components/Elements/Error";
+import styles from "../../../css/LoginForm.module.css";
+
+import stylesBtn from "../../../css/Button.module.css";
 
 const LoginForm = () => {
     const username = useForm("email");
@@ -14,8 +18,8 @@ const LoginForm = () => {
             .post(
                 "http://localhost:8989/api/users",
                 {
-                    username,
-                    password,
+                    username: username.value,
+                    password: password.value,
                 },
                 {
                     headers: {
@@ -34,9 +38,9 @@ const LoginForm = () => {
     }
 
     return (
-        <section>
-            <h1>Login</h1>
-            <form action="" onSubmit={handleSubmit}>
+        <section className="animeLeft">
+            <h1 className="title">Login</h1>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <Input
                     name="username"
                     label="Usuário"
@@ -50,8 +54,18 @@ const LoginForm = () => {
                     {...password}
                 />
                 <Button>Entrar</Button>
+                <Error />
             </form>
-            <Link to="/login/criar">Cadastro</Link>
+            <Link to="/login/perdeu" className={styles.perdeu}>
+                Esqueceu a senha?
+            </Link>
+            <div className={styles.cadastro}>
+                <h2 className={styles.subtitle}>Cadastre-se</h2>
+                <p>Ainda não podia conta? Cadastre-se</p>
+            </div>
+            <Link to="/login/criar" className={stylesBtn.button}>
+                Cadastro
+            </Link>
         </section>
     );
 };
