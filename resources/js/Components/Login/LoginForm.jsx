@@ -9,31 +9,24 @@ import styles from "../../../css/LoginForm.module.css";
 import stylesBtn from "../../../css/Button.module.css";
 
 const LoginForm = () => {
-    const username = useForm("email");
-    const password = useForm("password");
+    const email = useForm("email");
+    const password = useForm();
 
     function handleSubmit(event) {
         event.preventDefault();
-        axios
-            .post(
-                "http://localhost:8989/api/users",
-                {
-                    username: username.value,
-                    password: password.value,
-                },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                    },
-                }
-            )
+        fetch("http://localhost:8989/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email: email.value,
+                password: password.value,
+            }),
+        })
             .then((response) => {
                 console.log(response);
-                return response.json();
             })
             .catch((error) => {
-                console.error("Erro na solicitação:", error);
+                console.log(error.response.data);
             });
     }
 
@@ -41,12 +34,7 @@ const LoginForm = () => {
         <section className="animeLeft">
             <h1 className="title">Login</h1>
             <form className={styles.form} onSubmit={handleSubmit}>
-                <Input
-                    name="username"
-                    label="Usuário"
-                    type="text"
-                    {...username}
-                />
+                <Input label="Email" type="email" name="email" {...email} />
                 <Input
                     label="Senha"
                     type="password"

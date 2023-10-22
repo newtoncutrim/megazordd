@@ -14,26 +14,25 @@ const LoginCreate = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                name: username.value,   // Acesse o valor usando .value
-                email: email.value,     // Acesse o valor usando .value
-                password: password.value, // Acesse o valor usando .value
+                name: username.value,
+                email: email.value,
+                password: password.value,
             }),
         })
-        .then((response) => {
-            console.log(response);
-            if (!response.ok) {
-                throw new Error("A requisição falhou"); // Trate o erro da resposta
-            }
-            return response.json();
-        })
-        .then((json) => {
-            console.log(json);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+            .then((response) => {
+                console.log(response);
+                if (!response.ok) {
+                    throw new Error("A requisição falhou");
+                }
+                return response.json();
+            })
+            .then((json) => {
+                console.log(json);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
-
 
     return (
         <section className="animeLeft">
