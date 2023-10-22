@@ -28,7 +28,6 @@ const LoginCreate = () => {
         })
         .then((json) => {
             console.log(json);
-            // Faça algo com os dados JSON retornado
         })
         .catch((error) => {
             console.error(error);
