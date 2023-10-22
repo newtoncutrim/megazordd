@@ -1,20 +1,19 @@
 .login {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    gap: 2rem;
 }
-
-.login::before {
+/* .login::before {
     display: block;
     content: "";
     background: #23253a;
-}
+} */
 
-.forms {
+/* .forms {
     max-width: 30rem;
     padding: 2rem;
-}
+} */
 
 @media (max-width: 40rem) {
     .login {
