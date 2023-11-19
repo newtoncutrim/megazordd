@@ -1,11 +1,11 @@
-.loginContainer {
+.cadastroContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.login {
+.cadastro {
     width: 400px;
     padding: 2rem;
     border-radius: 0.4rem;
