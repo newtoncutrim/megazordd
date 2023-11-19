@@ -11,6 +11,7 @@
     border-radius: 0.4rem;
     background: #eee;
     transition: 0.2s;
+    margin-bottom: 1.5rem;
 }
 
 .input:hover,
