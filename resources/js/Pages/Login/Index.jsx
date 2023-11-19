@@ -4,13 +4,15 @@ import Footer from "@/Components/Footer";
 // import Home from "@/Components/Home/Home";
 import "../../../css/app.css";
 import Cadastro from "@/Components/Cadastro/Cadastro";
+import Login from "@/Components/Login/Login";
 
 const Index = () => {
     return (
         <div>
             {/* <Home /> */}
             <Header />
-            <Cadastro />
+            {/* <Cadastro /> */}
+            <Login />
             <Footer />
         </div>
     );

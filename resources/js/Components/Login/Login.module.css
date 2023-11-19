@@ -1,0 +1,17 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login {
+    width: 400px;
+    padding: 2rem;
+    border-radius: 0.4rem;
+    background: #ccc;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+}

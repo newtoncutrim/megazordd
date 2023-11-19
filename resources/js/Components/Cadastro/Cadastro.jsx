@@ -23,7 +23,7 @@ const Login = () => {
     }
 
     return (
-        <main className={styles.cadastroContainer}>
+        <section className={styles.cadastroContainer}>
             <div className={styles.cadastro}>
                 <h1 className="title">Cadastre-se</h1>
                 <form onSubmit={handleSubmit}>
@@ -35,10 +35,10 @@ const Login = () => {
                     />
                     <Input label="Email:" type="email" {...email} />
                     <Input label="Senha:" type="password" {...password} />
-                    <Button />
+                    <Button>Cadastrar</Button>
                 </form>
             </div>
-        </main>
+        </section>
     );
 };
 
