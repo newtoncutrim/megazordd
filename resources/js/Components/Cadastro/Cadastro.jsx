@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Cadastro.module.css";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
 import { USER_POST } from "../../../Api/api";
 import useForm from "@/Hooks/useForm";
+import axios from "axios";
 
-const Login = () => {
+const Cadastro = () => {
     const name = useForm();
     const email = useForm("email");
     const password = useForm();
@@ -18,8 +19,21 @@ const Login = () => {
             email: email.value,
             password: password.value,
         };
+
         const { url, options } = USER_POST(userData);
-        const response = await fetch(url, options);
+
+        try {
+            const response = await axios.post(url, userData, options);
+            if (!response.data.ok) {
+                throw new Error(
+                    `Erro na requisição: ${response.status} - ${response.statusText}`
+                );
+            }
+
+            console.log("Resposta bem-sucedida:", response.data);
+        } catch (error) {
+            console.error("Erro na requisição:", error.message);
+        }
     }
 
     return (
@@ -42,4 +56,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Cadastro;
