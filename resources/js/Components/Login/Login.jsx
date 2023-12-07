@@ -6,33 +6,34 @@ import { LOGIN_POST } from "../../../Api/api";
 
 const Login = () => {
     const [name, setName] = React.useState("");
-    const [password, setPassword] = useState("");
-
+    const [password, setPassword] = React.useState("");
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const loginData = {
-            name,
-            password,
+            name: data.name,
+            password: data.password,
         };
 
         const { url, options } = LOGIN_POST(loginData);
 
-        try {
-            const response = await fetch(url, options);
+        if (name.validate() && password.validate()) {
+            try {
+                const response = await fetch(url, options);
 
-            if (response.ok) {
-                const data = await response.json();
-                console.log("Token de acesso:", data.access_token);
-            } else {
-                console.error(
-                    "Erro ao fazer login:",
-                    response.status,
-                    response.statusText
-                );
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log("Token de acesso:", data.access_token);
+                } else {
+                    console.error(
+                        "Erro ao fazer login:",
+                        response.status,
+                        response.statusText
+                    );
+                }
+            } catch (error) {
+                console.error("Erro na solicitação:", error);
             }
-        } catch (error) {
-            console.error("Erro na solicitação:", error);
         }
     };
 

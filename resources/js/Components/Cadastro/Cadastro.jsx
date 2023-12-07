@@ -29,13 +29,11 @@ const Cadastro = () => {
                     `Erro na requisição: ${response.status} - ${response.statusText}`
                 );
             }
-
             console.log("Resposta bem-sucedida:", response.data);
         } catch (error) {
-            console.error("Erro na requisição:", error.message);
+            console.error(error.message);
         }
     }
-
     return (
         <section className={styles.cadastroContainer}>
             <div className={styles.cadastro}>

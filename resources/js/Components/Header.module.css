@@ -7,3 +7,14 @@
     z-index: 100;
     top: 0;
 }
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.svg * svg {
+    fill: #fb1;
+}

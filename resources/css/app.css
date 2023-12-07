@@ -1,11 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&family=Righteous&display=swap");
+
+:root {
+    /* Cores Principais */
+    --cor-primaria: #23253a;
+
+    /* Tonalidades Escuras */
+    --tonalidade-escura-1: #1d1f33;
+    --tonalidade-escura-2: #171828;
+    --tonalidade-escura-3: #11121c;
+
+    /* Tonalidades Claras */
+    --tonalidade-clara-1: #2c2e4f;
+    --tonalidade-clara-2: #363859;
+    --tonalidade-clara-3: #40425e;
+
+    /* Cores de Contraste */
+    --cor-contraste-1: #ff5252; /* Vermelho */
+    --cor-contraste-2: #4caf50; /* Verde */
+}
 * {
     box-sizing: border-box;
+    color: white;
+    font-family: "Righteous", sans-serif;
 }
 
 body {
     margin: 0px;
-    color: #23253a;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #23253a;
+    color: white;
     padding-top: 4rem;
 }
 
