@@ -39,10 +39,12 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [UserController::class, 'register']);
 
 
-// função que renderiza o todo
+// função que renderiza o App
  Route::get('/', function () {
-    return Inertia::render("Login/Index");
+    return Inertia::render("Login");
 });
+
+
 
 
 

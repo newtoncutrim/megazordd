@@ -20,14 +20,14 @@
 }
 * {
     box-sizing: border-box;
-    color: white;
-    font-family: "Righteous", sans-serif;
+    /* color: white; */
+    /* font-family: "Righteous", sans-serif; */
 }
 
 body {
     margin: 0px;
-    background: #23253a;
-    color: white;
+    /* background: #23253a;
+    color: white; */
     padding-top: 4rem;
 }
 
