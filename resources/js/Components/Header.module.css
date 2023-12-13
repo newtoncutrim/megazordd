@@ -1,20 +1,10 @@
 .header {
-    color: #23253a;
-    padding: 1rem 0;
+    background: #ccc;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    position: fixed;
     width: 100%;
-    z-index: 100;
-    top: 0;
-}
-
-.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 2rem;
-}
-
-.svg * svg {
-    fill: #fb1;
+    margin: 0;
+    padding: 1rem;
 }
