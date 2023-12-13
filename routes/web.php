@@ -40,11 +40,15 @@ Route::get('/', [UserController::class, 'register']);
 
 
  Route::get('/', function () {
-    return Inertia::render("Login");
+    return Inertia::render("Home/Home");
 });
 
 Route::get('/cadastro', function () {
     return Inertia::render("Cadastro/Cadastro");
+});
+
+Route::get('/login', function () {
+    return Inertia::render("Login/Login");
 });
 
 

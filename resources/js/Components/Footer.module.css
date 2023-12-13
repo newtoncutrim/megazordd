@@ -1,9 +1,10 @@
 .footer {
-    background: #ccc;
-    color: #23253a;
+    display: flex;
+    justify-content: center;
+    background: #4b4747;
+    color: #55ffff;
     padding: 1rem 0;
     position: fixed;
     width: 100%;
-    z-index: 100;
     bottom: 0;
 }

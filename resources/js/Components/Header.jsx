@@ -1,16 +1,21 @@
-// Header.js
 import React from "react";
 import styles from "./Header.module.css";
 import { Link } from "@inertiajs/react";
+import Logo from "../../img/MdiChartDonut.svg";
 
 const Header = () => {
     return (
-        <header className={styles.header}>
-            <h1>Header</h1>
-            <nav>
+        <header className={`container ${styles.header}`}>
+            <Link href="/" method="get">
+                <img src={Logo} alt="Logo" />
+            </Link>
+
+            <nav className={styles.nav}>
                 <ul>
-                    <li>
-                        <Link to="/login">Login</Link>
+                    <li className={styles.links}>
+                        <Link href="/cadastro" method="get">
+                            Login / Criar
+                        </Link>
                     </li>
                 </ul>
             </nav>

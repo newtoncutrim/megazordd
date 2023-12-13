@@ -1,10 +1,15 @@
 .header {
-    background: #ccc;
+    background: #4b4747;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0;
     padding: 1rem;
+}
+
+.nav a {
+    color: #55ffff;
 }
