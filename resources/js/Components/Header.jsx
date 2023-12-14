@@ -13,7 +13,7 @@ const Header = () => {
             <nav className={styles.nav}>
                 <ul>
                     <li className={styles.links}>
-                        <Link href="/cadastro" method="get">
+                        <Link href="/login" method="get">
                             Login / Criar
                         </Link>
                     </li>

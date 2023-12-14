@@ -47,8 +47,9 @@ Route::get('/cadastro', function () {
     return Inertia::render("Cadastro/Cadastro");
 });
 
+
 Route::get('/login', function () {
-    return Inertia::render("Login/Login");
+    return Inertia::render("Login");
 });
 
 
