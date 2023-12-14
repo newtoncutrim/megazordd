@@ -1,11 +1,11 @@
 .button {
     font-size: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Righteous", sans-serif;
     cursor: pointer;
     border: none;
     border-radius: 0.4rem;
-    background: #fa4c4e;
-    color: #23253a;
+    background: #01c38d;
+    color: #fff;
     padding: 0.8rem 1.2rem;
     box-sizing: border-box;
     transition: 0.2s;
@@ -15,7 +15,6 @@
 .button:hover,
 .button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px #fe7f81, 0 0 0 4px #fa4c4e;
 }
 
 .button:disabled {

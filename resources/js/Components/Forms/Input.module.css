@@ -3,7 +3,7 @@
 }
 
 .input {
-    border: 1px solid #ededed;
+    border: 1px solid #01c38d;
     display: block;
     width: 100%;
     font-size: 1rem;
@@ -18,8 +18,8 @@
 .input:focus {
     outline: none;
     background: white;
-    border-color: #fa4c4e;
-    box-shadow: 0 0 0 2px #fe7f81;
+    border-color: #01c38d;
+    box-shadow: 0 0 0 2px #01c38d;
 }
 
 .label {
