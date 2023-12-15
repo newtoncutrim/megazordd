@@ -8,7 +8,7 @@ import axios from "axios";
 const Cadastro = () => {
     const name = useForm();
     const email = useForm("email");
-    const password = useForm();
+    const password = useForm("password");
 
     async function handleSubmit(event) {
         event.preventDefault();

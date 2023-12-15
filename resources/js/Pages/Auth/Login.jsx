@@ -1,17 +1,30 @@
 import React from "react";
 import styles from "./Login.module.css";
-import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
+
 import { Link } from "@inertiajs/react";
 import Input from "@/Components/Forms/Input";
 import Button from "@/Components/Forms/Button";
+import useForm from "@/Hooks/useForm";
 
 const Login = () => {
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
+    const email = useForm("email");
+    const password = useForm("password");
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+        try {
+            const response = await axios.post(
+                "http://localhost:8989/api/auth/login",
+                {
+                    email: email.value,
+                    password: password.value,
+                }
+            );
+
+            console.log("Resposta do servidor:", response.data);
+        } catch (error) {
+            console.error("Erro na solicitação:", error.response.data);
+        }
     }
 
     return (
@@ -20,11 +33,18 @@ const Login = () => {
                 <div className={styles.form}>
                     <form onSubmit={handleSubmit}>
                         <h1 className="title">Login</h1>
-                        <Input label="Usuário : " name={username} type="text" />
                         <Input
-                            label="Senha : "
+                            label="Usuário :"
+                            type="text"
+                            name="email"
+                            {...email}
+                        />
+
+                        <Input
+                            label="Senha"
                             type="password"
-                            name={password}
+                            name="senha"
+                            {...password}
                         />
                         <Button>Entrar</Button>
                     </form>
