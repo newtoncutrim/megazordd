@@ -14,8 +14,8 @@ const Cadastro = () => {
         event.preventDefault();
     }
     return (
-        <section className={styles.cadastroContainer}>
-            <div className={styles.cadastro}>
+        <section className={`animeLeft ${styles.cadastroSection}`}>
+            <div className={styles.cadastroContainer}>
                 <h1 className="title">Cadastre-se</h1>
                 <form onSubmit={handleSubmit}>
                     <Input

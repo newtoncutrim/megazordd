@@ -5,7 +5,7 @@
     border: none;
     border-radius: 0.4rem;
     background: #01c38d;
-    color: #fff;
+    color: #191e29;
     padding: 0.8rem 1.2rem;
     box-sizing: border-box;
     transition: 0.2s;
@@ -15,6 +15,7 @@
 .button:hover,
 .button:focus {
     outline: none;
+    box-shadow: 0 0 0 3px #01c38d;
 }
 
 .button:disabled {

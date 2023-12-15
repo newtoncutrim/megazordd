@@ -1,7 +1,43 @@
 .login {
     max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    gap: 1rem;
+}
+
+.login::before {
+    display: block;
+    content: "";
+    background: url("../../../img/background-image2.jpg") no-repeat center
+        center;
+    background-size: cover;
+}
+
+.form {
+    max-width: 30rem;
+    padding: 1rem;
+}
+
+.form button {
+    margin-bottom: 1rem;
+}
+
+.form a {
+    color: #bbb;
+    text-decoration: underline;
+}
+
+.formCadastro {
+    margin-top: 2rem;
+}
+
+.formCadastro a {
+    text-decoration: none;
+    color: #111;
+}
+
+.paragrafo {
+    color: #aaa;
+    margin-bottom: 1rem;
 }

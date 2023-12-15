@@ -1,5 +1,10 @@
-.cadastro {
+.cadastroSection {
+    background-color: brown;
+}
+
+.cadastroContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }

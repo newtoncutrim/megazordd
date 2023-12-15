@@ -17,22 +17,33 @@ const Login = () => {
     return (
         <div>
             <Header />
-            <section className={styles.login}>
-                <h1>Login</h1>
-                <form onSubmit={handleSubmit}>
-                    <Input
-                        type="text"
-                        onChange={({ target }) => setUsername(target.value)}
-                        value={username}
-                    />
-                    <Input
-                        type="password"
-                        onChange={({ target }) => setPassword(target.value)}
-                        value={password}
-                    />
-                    <Button>Entrar</Button>
-                </form>
-                <Link href="/cadastro ">Login Create</Link>
+            <section className={`animeLeft ${styles.login}`}>
+                <div className={styles.form}>
+                    <form onSubmit={handleSubmit}>
+                        <h1 className="title">Login</h1>
+                        <Input label="Usuário : " name={username} type="text" />
+                        <Input
+                            label="Senha : "
+                            type="password"
+                            name={password}
+                        />
+                        <Button>Entrar</Button>
+                    </form>
+
+                    <Link href="/recuperar " className={styles.perdeu}>
+                        Perdeu a Senha ?
+                    </Link>
+
+                    <div className={styles.formCadastro}>
+                        <h2 className="title">Cadastre-se</h2>
+                        <p className={styles.paragrafo}>
+                            Ainda não possui uma conta? Cadastre-se grátis{" "}
+                        </p>
+                        <Button>
+                            <Link href="/cadastro ">Cadastro</Link>
+                        </Button>
+                    </div>
+                </div>
             </section>
             <Footer />
         </div>

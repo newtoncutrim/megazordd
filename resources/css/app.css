@@ -34,7 +34,7 @@ button,
 input {
     display: block;
     font-size: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Righteous", sans-serif;
     color: #23253a;
 }
 
@@ -49,9 +49,11 @@ a {
 }
 
 .title {
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: "Righteous", sans-serif;
     line-height: 1;
     font-size: 2rem;
+    color: #01c38d;
+    margin-bottom: 1.5rem;
 }
 
 .animeLeft {
