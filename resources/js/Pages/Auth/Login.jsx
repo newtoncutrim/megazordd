@@ -15,8 +15,7 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <Header />
+        <div className={styles.loginContainer}>
             <section className={`animeLeft ${styles.login}`}>
                 <div className={styles.form}>
                     <form onSubmit={handleSubmit}>
@@ -45,7 +44,6 @@ const Login = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
         </div>
     );
 };

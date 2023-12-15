@@ -1,10 +1,39 @@
-.cadastroSection {
-    background-color: brown;
-}
-
 .cadastroContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+}
+
+.cadastroSection {
+    max-width: 100%;
+    width: 50rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    gap: 1rem;
+}
+.cadastroSection::before {
+    display: block;
+    content: "";
+    background: url("../../../img/background-image5.jpg") no-repeat center
+        center;
+    background-size: cover;
+}
+
+.cadastroForm {
+    max-width: 40rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 40rem) {
+    .cadastroSection {
+        grid-template-columns: 1fr;
+    }
+
+    .cadastroSection::before {
+        display: none;
+    }
+    .cadastroForm {
+        max-width: 100%;
+    }
 }
