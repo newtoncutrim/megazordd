@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className={styles.footer}>
             <p className={styles.copy}>
-                &copy; 2023 Kriks. Todos os direitos reservados.
+                &copy; 2023 TaskHub. Todos os direitos reservados.
             </p>
         </div>
     );

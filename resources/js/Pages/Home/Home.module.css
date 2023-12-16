@@ -1,0 +1,23 @@
+.home {
+    width: 100%;
+    display: flex;
+    padding: 5rem 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titleHome {
+    color: #01c38d;
+    font-size: 8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.subTitleHome {
+    font-size: 2rem;
+    color: aqua;
+}
+
+.span {
+    color: aqua;
+}

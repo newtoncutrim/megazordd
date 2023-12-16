@@ -22,6 +22,10 @@ const Login = () => {
                     }
                 );
 
+                const { token } = response.data.data;
+
+                localStorage.setItem("token", token);
+
                 console.log("Resposta do servidor:", response.data);
             } catch (error) {
                 console.error("Erro na solicitação:", error.response.data);
