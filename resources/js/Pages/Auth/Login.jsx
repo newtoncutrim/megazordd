@@ -12,18 +12,20 @@ const Login = () => {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        try {
-            const response = await axios.post(
-                "http://localhost:8989/api/auth/login",
-                {
-                    email: email.value,
-                    password: password.value,
-                }
-            );
+        if (email.validate() && password.validate()) {
+            try {
+                const response = await axios.post(
+                    "http://localhost:8989/api/auth/login",
+                    {
+                        email: email.value,
+                        password: password.value,
+                    }
+                );
 
-            console.log("Resposta do servidor:", response.data);
-        } catch (error) {
-            console.error("Erro na solicitação:", error.response.data);
+                console.log("Resposta do servidor:", response.data);
+            } catch (error) {
+                console.error("Erro na solicitação:", error.response.data);
+            }
         }
     }
 
@@ -34,7 +36,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit}>
                         <h1 className="title">Login</h1>
                         <Input
-                            label="Usuário :"
+                            label="Email :"
                             type="text"
                             name="email"
                             {...email}
