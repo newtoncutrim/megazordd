@@ -1,14 +1,40 @@
 import React from "react";
 import styles from "./Login.module.css";
-
 import { Link } from "@inertiajs/react";
 import Input from "@/Components/Forms/Input";
 import Button from "@/Components/Forms/Button";
 import useForm from "@/Hooks/useForm";
+import axios from "axios";
 
 const Login = () => {
     const email = useForm("email");
     const password = useForm("password");
+
+    async function getUser() {
+        try {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                console.error("Token not found in localStorage");
+                return;
+            }
+
+            const response = await axios.get("http://localhost:8989/api/user", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            // console.log("resposta getUser", response);
+
+            if (response && response.data) {
+                const user = response.data;
+                console.log("User:", user);
+            } else {
+                console.error(response);
+            }
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -22,13 +48,20 @@ const Login = () => {
                     }
                 );
 
-                const { token } = response.data.data;
+                if (response && response.data && response.data.data) {
+                    const { token } = response.data.data;
+                    localStorage.setItem("token", token);
 
-                localStorage.setItem("token", token);
-
-                console.log("Resposta do servidor:", response.data);
+                    getUser(token);
+                    console.log("Login bem-sucedido. Token:", token);
+                } else {
+                    console.error(
+                        "Resposta do servidor não está no formato esperado:",
+                        response
+                    );
+                }
             } catch (error) {
-                console.error("Erro na solicitação:", error.response.data);
+                console.error("Erro na solicitação:", error.message);
             }
         }
     }

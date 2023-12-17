@@ -28,16 +28,21 @@ Update: PUT/PATCH /api/tasks/{id} - Atualiza um recurso existente (tarefa) no ba
 Destroy: DELETE /api/tasks/{id} - Remove um recurso existente (tarefa) do banco de dados.
 */
 
-Route::middleware('auth:sanctum')->prefix('api')->group(function(){
-    /* Route::apiResource('tasks', [TaskApiController::class]); */
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Route for retrieving the authenticated user
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::apiResource('/tasks', TaskApiController::class);
 });
 
 
 Route::apiResource('/tasks', TaskApiController::class)->middleware('auth:sanctum');
-Route::apiResource('/users', UserApiController::class);
-
 
 Route::post('auth/login', [UserAuthApiController::class, 'login']);
+Route::apiResource('/users', UserApiController::class);
 
 /* tokem jwt api */
 /* http://localhost:8989/api/auth/login */

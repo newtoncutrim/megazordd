@@ -52,6 +52,11 @@ Route::get('/login', function () {
     return Inertia::render("Login");
 });
 
+Route::get('/tarefas', function () {
+    return Inertia::render("Tasks/Tasks");
+});
+
+
 
 Route::get('user/login', [UserController::class, 'login'])->name('user.login');
 Route::get('user/register', [UserController::class, 'register'])->name('user.register');
