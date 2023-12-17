@@ -4,65 +4,18 @@ import { Link } from "@inertiajs/react";
 import Input from "@/Components/Forms/Input";
 import Button from "@/Components/Forms/Button";
 import useForm from "@/Hooks/useForm";
-import axios from "axios";
+// import axios from "axios";
+import { UserContext } from "@/UserContext";
 
 const Login = () => {
     const email = useForm("email");
     const password = useForm("password");
-
-    async function getUser() {
-        try {
-            const token = localStorage.getItem("token");
-            if (!token) {
-                console.error("Token not found in localStorage");
-                return;
-            }
-
-            const response = await axios.get("http://localhost:8989/api/user", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            // console.log("resposta getUser", response);
-
-            if (response && response.data) {
-                const user = response.data;
-                console.log("User:", user);
-            } else {
-                console.error(response);
-            }
-        } catch (error) {
-            console.error(error.message);
-        }
-    }
+    const { userLogin, error, loading } = React.useContext(UserContext);
 
     async function handleSubmit(event) {
         event.preventDefault();
         if (email.validate() && password.validate()) {
-            try {
-                const response = await axios.post(
-                    "http://localhost:8989/api/auth/login",
-                    {
-                        email: email.value,
-                        password: password.value,
-                    }
-                );
-
-                if (response && response.data && response.data.data) {
-                    const { token } = response.data.data;
-                    localStorage.setItem("token", token);
-
-                    getUser(token);
-                    console.log("Login bem-sucedido. Token:", token);
-                } else {
-                    console.error(
-                        "Resposta do servidor não está no formato esperado:",
-                        response
-                    );
-                }
-            } catch (error) {
-                console.error("Erro na solicitação:", error.message);
-            }
+            userLogin(email.value, password.value);
         }
     }
 
@@ -85,7 +38,13 @@ const Login = () => {
                             name="senha"
                             {...password}
                         />
-                        <Button>Entrar</Button>
+                        {loading ? (
+                            <Button disabled>Carregando...</Button>
+                        ) : (
+                            <Button>Entrar</Button>
+                        )}
+
+                        {error && <p className="error">{error}</p>}
                     </form>
 
                     <Link href="/recuperar " className={styles.perdeu}>

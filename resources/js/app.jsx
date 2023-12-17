@@ -5,6 +5,7 @@ import { createRoot } from "react-dom/client";
 import { createInertiaApp } from "@inertiajs/react";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import Layout from "./layouts/Layout";
+import { UserStorage } from "./UserContext";
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
@@ -19,9 +20,11 @@ createInertiaApp({
         const root = createRoot(el);
 
         root.render(
-            <Layout>
-                <App {...props} />
-            </Layout>
+            <UserStorage>
+                <Layout>
+                    <App {...props} />
+                </Layout>
+            </UserStorage>
         );
     },
     progress: {
