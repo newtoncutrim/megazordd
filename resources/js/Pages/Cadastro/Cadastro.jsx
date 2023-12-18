@@ -43,7 +43,11 @@ const Cadastro = () => {
                             {...password}
                         />
                         {error && <p className="error">{error}</p>}
-                        <Button>Cadastrar</Button>
+                        {loading ? (
+                            <Button disabled>Carregando...</Button>
+                        ) : (
+                            <Button>Cadastrar</Button>
+                        )}
                     </form>
                 </div>
             </section>

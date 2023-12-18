@@ -83,6 +83,8 @@ export const UserStorage = ({ children }) => {
 
     async function userRegister(name, email, password) {
         try {
+            setError(null);
+            setLoading(true);
             const userData = {
                 name: name.value,
                 email: email.value,
@@ -93,7 +95,10 @@ export const UserStorage = ({ children }) => {
                 "http://localhost:8989/api/users",
                 userData
             );
+            if (!response.status === 200)
+                throw new Error("Email ja cadastrado");
             setError(null);
+            window.location.href = "/login";
         } catch (error) {
             if (error.response) {
                 setError(error.response.data.message);
