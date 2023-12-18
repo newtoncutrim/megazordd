@@ -3,31 +3,19 @@ import styles from "./Cadastro.module.css";
 import Input from "@/Components/Forms/Input";
 import Button from "@/Components/Forms/Button";
 import useForm from "@/Hooks/useForm";
-import axios from "axios";
+import { UserContext } from "@/UserContext";
 
 const Cadastro = () => {
-    const name = useForm();
+    const name = useForm("name");
     const email = useForm("email");
     const password = useForm("password");
+    const { userRegister, error, loading } = React.useContext(UserContext);
 
     async function handleSubmit(event) {
         event.preventDefault();
 
-        try {
-            const userData = {
-                name: name.value,
-                email: email.value,
-                password: password.value,
-            };
-
-            const response = await axios.post(
-                "http://localhost:8989/api/users",
-                userData
-            );
-
-            console.log("Resposta do servidor:", response.data);
-        } catch (err) {
-            console.error("Erro na solicitação:", err.response.data);
+        if (name.validate() && email.validate() && password.validate()) {
+            userRegister(name, email, password);
         }
     }
     return (
@@ -54,6 +42,7 @@ const Cadastro = () => {
                             name="senha"
                             {...password}
                         />
+                        {error && <p className="error">{error}</p>}
                         <Button>Cadastrar</Button>
                     </form>
                 </div>

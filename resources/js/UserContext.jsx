@@ -81,9 +81,39 @@ export const UserStorage = ({ children }) => {
         }
     }
 
+    async function userRegister(name, email, password) {
+        try {
+            const userData = {
+                name: name.value,
+                email: email.value,
+                password: password.value,
+            };
+
+            const response = await axios.post(
+                "http://localhost:8989/api/users",
+                userData
+            );
+            setError(null);
+        } catch (error) {
+            if (error.response) {
+                setError(error.response.data.message);
+            }
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <UserContext.Provider
-            value={{ userLogin, userLogout, data, logado, loading, error }}
+            value={{
+                userLogin,
+                userLogout,
+                userRegister,
+                data,
+                logado,
+                loading,
+                error,
+            }}
         >
             {children}
         </UserContext.Provider>

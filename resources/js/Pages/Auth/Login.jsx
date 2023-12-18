@@ -43,7 +43,6 @@ const Login = () => {
                         ) : (
                             <Button>Entrar</Button>
                         )}
-
                         {error && <p className="error">{error}</p>}
                     </form>
 
@@ -54,7 +53,7 @@ const Login = () => {
                     <div className={styles.formCadastro}>
                         <h2 className="title">Cadastre-se</h2>
                         <p className={styles.paragrafo}>
-                            Ainda não possui uma conta? Cadastre-se grátis{" "}
+                            Ainda não possui uma conta? Cadastre-se grátis
                         </p>
                         <Button>
                             <Link href="/cadastro ">Cadastro</Link>
