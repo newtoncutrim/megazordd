@@ -5,7 +5,7 @@ import Logo from "../../img/MdiChartDonut.svg";
 import { UserContext } from "@/UserContext";
 
 const Header = () => {
-    const { data, userLogout } = React.useContext(UserContext);
+    const { data } = React.useContext(UserContext);
 
     return (
         <header className={`container ${styles.header}`}>
@@ -19,7 +19,7 @@ const Header = () => {
                         {data ? (
                             <Link href="/tarefas" method="get">
                                 {data.name}
-                                <button onClick={userLogout}>Sair</button>
+                                {/* <button onClick={userLogout}>Sair</button> */}
                             </Link>
                         ) : (
                             <Link href="/login" method="get">

@@ -8,8 +8,10 @@ body {
     margin: 0px;
     padding-top: 0;
     background: #1A202c;
-    font-family: "Righteous", sans-serif;
+    min-height: 100vh;
 }
+
+
 
 h1,
 h2,
@@ -44,6 +46,7 @@ a {
 
 .container {
     max-width: 50rem;
+    height: 100vh;
     padding: 0 1rem;
     margin: 0 auto;
 }

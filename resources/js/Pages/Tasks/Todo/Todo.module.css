@@ -1,0 +1,35 @@
+.todo {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  background-color: #171923;
+  color: #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.complete {
+  background-color: #5cb85c;
+  padding: .5rem 1.2rem;
+  font-size: 1em;
+  color: #171923;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.remove {
+  background-color: #d9534f;
+  padding: .5rem 1.2rem;
+  font-size: 1em;
+  color: #171923;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+}
