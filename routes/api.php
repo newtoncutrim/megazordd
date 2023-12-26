@@ -38,8 +38,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/tasks', TaskApiController::class);
 });
 
-// Route::get('users/check-email/{email}', [UserApiController::class, 'checkEmail']);
-
 
 Route::apiResource('/tasks', TaskApiController::class)->middleware('auth:sanctum');
 

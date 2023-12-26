@@ -1,0 +1,9 @@
+.taskSection {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+}
+
+.menuLateral {
+    background-color: antiquewhite;
+    height: 100vh;
+}

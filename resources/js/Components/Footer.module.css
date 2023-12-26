@@ -1,10 +1,9 @@
 .footer {
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
     background: #132d46;
     color: #55ffff;
     padding: 1.5rem 0;
-    position: fixed;
     width: 100%;
-    bottom: 0;
 }
