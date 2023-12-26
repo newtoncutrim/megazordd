@@ -1,9 +1,12 @@
 .footer {
     text-align: center;
-    position: fixed;
     bottom: 0;
-    background: #132d46;
-    color: #55ffff;
+    background: #1A202c;
+    box-shadow: 0 0 5px 2px;
     padding: 1.5rem 0;
     width: 100%;
+}
+.copy{
+    color: #55ffff;
+
 }
