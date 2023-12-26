@@ -9,6 +9,13 @@
     box-shadow: 0 0 5px 2px;
 }
 
+.titleHeader{
+
+        color: #55ffff;
+        font-size: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
 .nav a {
     color: #55ffff;
 }

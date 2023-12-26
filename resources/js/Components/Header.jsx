@@ -13,6 +13,10 @@ const Header = () => {
                 <img src={Logo} alt="Logo" />
             </Link>
 
+            <h1 className={styles.titleHeader}>
+                TaskHub
+            </h1>
+
             <nav className={styles.nav}>
                 <ul>
                     <li className={styles.links}>
