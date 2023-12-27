@@ -1,10 +1,11 @@
 .footer {
-    text-align: center;
-    background: #1A202c;
-    box-shadow: 0 0 5px 2px;
-    padding: 1.5rem 0;
-    position: sticky; 
-  bottom: 0;
+max-width: 100%;
+width: 100%;
+height: auto;
+background: #1A202c;
+box-shadow: 0 0 5px 2px;
+padding: 1.5rem 0;
+z-index: 100;
 }
 .copy{
     color: #55ffff;

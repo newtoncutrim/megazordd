@@ -6,9 +6,7 @@
 
 body {
     margin: 0px;
-    padding-top: 0;
     background: #1A202c;
-    min-height: 100vh;
 }
 
 
@@ -35,9 +33,6 @@ img {
 button,
 input {
     display: block;
-    font-size: 1rem;
-    font-family: "Righteous", sans-serif;
-    color: #23253a;
 }
 
 a {
@@ -46,7 +41,6 @@ a {
 
 .container {
     max-width: 50rem;
-    height: 100vh;
     padding: 0 1rem;
     margin: 0 auto;
 }

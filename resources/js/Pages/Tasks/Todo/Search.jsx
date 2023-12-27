@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import styles from './Search.module.css'
 
 const Search = ({ search, setSearch }) => {
+  
   return (
     <div className={styles.search}>
       <input

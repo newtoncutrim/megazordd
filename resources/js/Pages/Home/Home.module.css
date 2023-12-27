@@ -1,8 +1,9 @@
 .home {
-    width: 100%;
-    display: flex;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    gap: 2rem;
     padding: 5rem 0;
-    justify-content: space-around;
+    min-height: 100vh;
 }
 
 .titleHome {
@@ -22,10 +23,11 @@
 
 
 .homeImage{
-    max-width: 500px;
-    height: 100px;
+    width: 500px;
 }
 
 .homeImage img {
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
 }

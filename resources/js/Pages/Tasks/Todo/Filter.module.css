@@ -4,12 +4,12 @@
   padding-bottom: 20px;
 }
 
-.filter-options {
+.filterOptions {
   display: flex;
   justify-content: space-between;
   gap: 3rem;
 }
 
-.filter-options div {
+.filterOptions div {
   flex: 1 1 0;
 }

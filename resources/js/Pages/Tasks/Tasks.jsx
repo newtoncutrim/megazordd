@@ -6,12 +6,15 @@ import Search from "./Todo/Search";
 import Filter from "./Todo/Filter";
 
 import { UserContext } from "@/UserContext";
-import { Link } from "@inertiajs/react";
 
 import { IoExitOutline } from "react-icons/io5";
 
 const Tasks = () => {
     const { data, userLogout } = useContext(UserContext);
+
+    const [filter, setFilter] = useState("All");
+    const [sort, setSort] = useState("Asc");
+    const [search, setSearch] = useState("");
 
     const [todos, setTodos] = useState([
         {
@@ -33,10 +36,6 @@ const Tasks = () => {
             isCompleted: false,
         },
     ]);
-
-    const [search, setSearch] = useState("");
-    const [filter, setFilter] = useState("All");
-    const [sort, setSort] = useState("Asc");
 
     // Função cria um novo array com id aleatório
     const addTodo = (text, category) => {

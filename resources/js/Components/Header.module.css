@@ -4,16 +4,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
     padding: 1.5rem;
     box-shadow: 0 0 5px 2px;
+    z-index: 100;
+
 }
 
-.titleHeader{
-
-        color: #55ffff;
-        font-size: 2rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+.titleHeader {
+    color: #55ffff;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .nav a {
