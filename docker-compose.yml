@@ -49,7 +49,7 @@ services:
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
-            - "3306:3306"
+            - "3366:3306"
         networks:
             - laravel
 

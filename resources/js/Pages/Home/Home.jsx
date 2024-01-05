@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "@inertiajs/react";
+import { UserContext } from "@/UserContext";
 import styles from "./Home.module.css";
-import Image from "../../../img/foto-home.jpg";
 
 const Home = () => {
+    const { error, loading } = React.useContext(UserContext);
+
     return (
-        <div>
+        <div className={styles.homeSection}>
             <section className={`container ${styles.home}`}>
                 <div className={styles.homeContent}>
                     <h1 className={styles.titleHome}>
@@ -13,19 +16,16 @@ const Home = () => {
                     <p className={styles.subTitleHome}>
                         Gerencie suas tarefas aqui{" "}
                     </p>
-                    <button
-                        type="button"
-                        className={`btn btn-primary ${styles.btnPrimary}`}
-                        onClick={() => {
-                            window.location = "login";
-                        }}
-                    >
-                        Entrar ou Cadastrar
-                    </button>
-                </div>
-
-                <div className={styles.homeImage}>
-                    <img src={Image} alt="Imagem Home" />
+                    {loading ? (
+                        <button disabled>Carregando...</button>
+                    ) : (
+                        <Link href="/login" method="get">
+                            <button type="button" className={styles.btnPrimary}>
+                                Entrar ou Cadastrar
+                            </button>
+                        </Link>
+                    )}
+                    {error && <p className="error">{error}</p>}
                 </div>
             </section>
         </div>

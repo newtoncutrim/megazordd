@@ -23,7 +23,6 @@ const Header = () => {
                         {data ? (
                             <Link href="/tarefas" method="get">
                                 {data.name}
-                                {/* <button onClick={userLogout}>Sair</button> */}
                             </Link>
                         ) : (
                             <Link href="/login" method="get">

@@ -1,33 +1,66 @@
+.homeSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .home {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-    gap: 2rem;
-    padding: 5rem 0;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     min-height: 100vh;
+    gap: 3rem;
+}
+
+
+.home::after {
+    display: block;
+    content: "";
+    background: url("../../../img/local-de-trabalho.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.homeContent{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .titleHome {
     color: aqua;
-    font-size: 6rem;
+    font-size: 7rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .subTitleHome {
     font-size: 2rem;
     color: aqua;
+    margin-bottom: 1rem;
 }
 
-.span {
-    color: aqua;
+.btnPrimary{
+    font-size: 1rem;
+    font-family: "Righteous", sans-serif;
+    cursor: pointer;
+    color: #191e29;
+    box-sizing: border-box;
+    transition: 0.2s;
+    min-width: 8rem;
+    background-color: #08C6AB;
+    color: #1A202c;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
 }
 
-
-.homeImage{
-    width: 500px;
+.btnPrimary:hover,
+.btnPrimary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #01c38d;
 }
 
-.homeImage img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+.btnPrimary:disabled {
+    opacity: 0.5;
+    cursor: wait;
 }
