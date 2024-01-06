@@ -19,7 +19,6 @@ const Login = () => {
         setPasswordVisible((prev) => !prev);
     };
 
-
     async function handleSubmit(event) {
         event.preventDefault();
         if (email.validate() && password.validate()) {
@@ -40,7 +39,7 @@ const Login = () => {
                             {...email}
                         />
 
-<div className={styles.passwordContainer}>
+                        <div className={styles.passwordContainer}>
                             <Input
                                 label="Senha"
                                 type={passwordVisible ? "text" : "password"}
@@ -52,11 +51,7 @@ const Login = () => {
                                 className={styles.togglePasswordButton}
                                 onClick={handleTogglePasswordVisibility}
                             >
-                                {passwordVisible ? (
-                                    <FaEyeSlash />
-                                ) : (
-                                    <FaEye />
-                                )}
+                                {passwordVisible ? <FaEyeSlash /> : <FaEye />}
                             </button>
                         </div>
                         {loading ? (
