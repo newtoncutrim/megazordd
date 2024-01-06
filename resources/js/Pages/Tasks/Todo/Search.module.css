@@ -1,0 +1,25 @@
+/* Search.module.css */
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search button svg {
+  color: #fff;
+}

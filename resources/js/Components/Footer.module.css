@@ -6,7 +6,9 @@ background: #1A202c;
 box-shadow: 0 0 5px 2px;
 padding: 1.5rem 0;
 z-index: 100;
+
 }
 .copy{
+    text-align: center;
     color: #55ffff;
 }

@@ -66,6 +66,11 @@ const Tasks = () => {
         setTodos(newTodos);
     };
 
+    // função para pesquisar uma tarefa
+    function handleSearch (){
+        console.log('realizando pesquisando')
+    }
+
     return (
         <section className={styles.sectionTask}>
             <div className={styles.menuTask}>
@@ -77,10 +82,9 @@ const Tasks = () => {
 
             <div className={styles.contentTask}>
                 <div className={styles.tituloContentTask}>
-                    <h2>
-                        Bem Vindo {data && data.name} a sua página de tarefas!!
-                    </h2>
-                    <Search search={search} setSearch={setSearch} />
+                    <Search search={search} setSearch={setSearch}
+                    handleSearch={handleSearch}
+                     />
                 </div>
                 <div className={styles.taskTodo}>
                     <TodoForm addTodo={addTodo} />

@@ -13,9 +13,9 @@ const Header = () => {
                 <img src={Logo} alt="Logo" />
             </Link>
 
-            <h1 className={styles.titleHeader}>
-                TaskHub
-            </h1>
+            <Link href="/" method="get">
+                <h1 className={styles.titleHeader}>TaskHub</h1>
+            </Link>
 
             <nav className={styles.nav}>
                 <ul>
