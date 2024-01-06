@@ -20,16 +20,23 @@
 .filterOptions div {
   flex: 1 1 0;
 }
-
+.ordemTask p {
+  margin-bottom: 10px;
+}
 .ordemTask button {
   background-color: #55ffff;
   padding: 4px 8px;
   margin-bottom: 1rem;
-  font-size: 1em;
+  font-size: 1rem;
   color: #171923;
   border: none;
   border-radius: 3px;
   cursor: pointer;
   opacity: 0.8;
   transition: 0.3s;
+  width: 50px;
+}
+
+.status {
+  margin-bottom: 10px;
 }

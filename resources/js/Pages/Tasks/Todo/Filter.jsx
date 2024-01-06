@@ -10,8 +10,8 @@ const Filter = ({ filter, setFilter, setSort }) => {
                     <button onClick={() => setSort("Asc")}>Asc</button>
                     <button onClick={() => setSort("Desc")}>Desc</button>
                 </div>
-                <div>
-                    <p>status:</p>
+                <div >
+                    <p className={styles.status}>status:</p>
                     <select
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
