@@ -32,10 +32,10 @@ class TaskController extends Controller
     }
 
     public function create(TaskCreateRequest $request){
-        $data = $request->all();
+        $data = $request->json()->all();
         $this->service->new($data);
 
-        return redirect()->route('tasks.index');
+        return response()->json(['message' => 'Tarefa criada com sucesso'], 201);
     }
 
     public function edit(string $id) {
