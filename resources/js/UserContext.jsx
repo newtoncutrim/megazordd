@@ -134,6 +134,8 @@ export const UserStorage = ({ children }) => {
         } catch (error) {
             if (error.response) {
                 setError(error.response.data.message);
+            window.location.href = "/login";
+
             }
         } finally {
             setLoading(false);

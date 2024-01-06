@@ -6,7 +6,6 @@ import Search from "./Todo/Search";
 import Filter from "./Todo/Filter";
 import { UserContext } from "@/UserContext";
 import { IoExitOutline } from "react-icons/io5";
-import Todo from "./Todo/Todo";
 
 const Tasks = () => {
     const { getUserId, userLogout } = useContext(UserContext);
@@ -16,28 +15,32 @@ const Tasks = () => {
     const [search, setSearch] = useState("");
 
     const fetchTasks = async () => {
-        try {
-            const userId = await getUserId();
-            const token = localStorage.getItem("token");
-
-            const response = await axios.get(
-                `http://localhost:8989/api/tasks`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            console.log(response.data.data);
-            setTasks(response.data.data);
-        } catch (error) {
-            console.error("Erro ao buscar tarefas do usuário", error);
+        const userId = await getUserId();
+        const token = localStorage.getItem("token");
+        if (token) {
+            try {
+                const response = await axios.get(
+                    `http://localhost:8989/api/tasks`,
+                    {
+                      params: { user_id: userId },
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+                console.log(response.data.data);
+                setTasks(response.data.data);
+            } catch (error) {
+                console.error("Erro ao buscar tarefas do usuário", error);
+            }
+        } else {
+          window.location.replace("/login");
         }
     };
 
     useEffect(() => {
         fetchTasks();
-    }, [getUserId]);
+    }, []);
 
     return (
         <section className={styles.sectionTask}>

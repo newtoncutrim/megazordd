@@ -7,9 +7,14 @@ const TodoForm = ({ addTodo }) => {
     const [value, setValue] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [loading, setLoading] = React.useState(false);
-    const [error , setError] = React.useState(null)
+    const [error, setError] = React.useState(null);
 
     const { getUserId } = React.useContext(UserContext);
+
+    function addTodo () {
+        if (value === "" || description === "") return;
+        setLoading(true);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,19 +40,19 @@ const TodoForm = ({ addTodo }) => {
                 setDescription("");
                 setError(null);
             } catch (error) {
-              console.error("Erro ao criar tarefa", error);
-              setError("Erro ao criar tarefa. Tente novamente."); 
+                console.error("Erro ao criar tarefa", error);
+                setError("Erro ao criar tarefa. Tente novamente.");
             } finally {
                 setLoading(false);
             }
         }
 
         if (!value || !description || !userId) {
-          setError("Por favor, preencha todos os campos."); 
-          return;
-      } else {
-        setError(null); 
-      }
+            setError("Por favor, preencha todos os campos.");
+            return;
+        } else {
+            setError(null);
+        }
     };
 
     return (
@@ -62,12 +67,12 @@ const TodoForm = ({ addTodo }) => {
                     onChange={(e) => setValue(e.target.value)}
                 />
                 <textarea
-    className={styles.textarea}
-    placeholder="Faça uma descrição da tarefa"
-    value={description}
-    onChange={(e) => setDescription(e.target.value)}
-/>
-                <button className={styles.buttonTodo} disabled={loading}> 
+                    className={styles.textarea}
+                    placeholder="Faça uma descrição da tarefa"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+                <button onClick={() => addTodo()} className={styles.buttonTodo} disabled={loading}>
                     {loading ? "+" : "+"}
                 </button>
                 {error && <p className={styles.error}>{error}</p>}
