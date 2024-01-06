@@ -6,11 +6,19 @@ import Button from "@/Components/Forms/Button";
 import useForm from "@/Hooks/useForm";
 // import axios from "axios";
 import { UserContext } from "@/UserContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const email = useForm("email");
     const password = useForm("password");
     const { userLogin, error, loading } = React.useContext(UserContext);
+
+    const [passwordVisible, setPasswordVisible] = React.useState(false);
+
+    const handleTogglePasswordVisibility = () => {
+        setPasswordVisible((prev) => !prev);
+    };
+
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -32,12 +40,25 @@ const Login = () => {
                             {...email}
                         />
 
-                        <Input
-                            label="Senha"
-                            type="password"
-                            name="senha"
-                            {...password}
-                        />
+<div className={styles.passwordContainer}>
+                            <Input
+                                label="Senha"
+                                type={passwordVisible ? "text" : "password"}
+                                name="senha"
+                                {...password}
+                            />
+                            <button
+                                type="button"
+                                className={styles.togglePasswordButton}
+                                onClick={handleTogglePasswordVisibility}
+                            >
+                                {passwordVisible ? (
+                                    <FaEyeSlash />
+                                ) : (
+                                    <FaEye />
+                                )}
+                            </button>
+                        </div>
                         {loading ? (
                             <Button disabled>Carregando...</Button>
                         ) : (

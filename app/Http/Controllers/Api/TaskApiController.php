@@ -8,6 +8,7 @@ use App\Services\TaskService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class TaskApiController extends Controller
 {
@@ -77,4 +78,6 @@ class TaskApiController extends Controller
 
         return response()->json(["message" => "Task deleted successfully"], Response::HTTP_OK);
     }
+
+   
 }

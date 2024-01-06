@@ -49,6 +49,30 @@
     margin-bottom: 1rem;
 }
 
+
+.passwordContainer {
+    position: relative;
+  }
+  
+  .togglePasswordButton {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(15%);
+    color: #1A202c;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .passwordContainer button {
+    font-size: 16px;
+    height: auto;
+  }
+  
+  
+  
+
+
 @media (max-width: 40rem) {
     .login {
         grid-template-columns: 1fr;

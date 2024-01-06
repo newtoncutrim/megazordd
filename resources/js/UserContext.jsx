@@ -104,7 +104,8 @@ export const UserStorage = ({ children }) => {
             await getUser(token);
             window.location.href = "/tarefas";
         } catch (err) {
-            setError("Error: Usuário Inválido");
+            setError("Usuário Não Cadastrado");
+            window.location.href = "/cadastro";
             setLogado(false);
         } finally {
             setLoading(false);
