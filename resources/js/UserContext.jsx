@@ -43,8 +43,37 @@ export const UserStorage = ({ children }) => {
                 Authorization: `Bearer ${token}`,
             },
         });
+        // console.log(response.data.id)
         setData(response.data);
         setLogado(true);
+    }
+
+    // função para pegar id do usuário
+    async function getUserId() {
+        const token = localStorage.getItem("token");
+    
+        if (token) {
+            try {
+                const response = await axios.get(
+                    "http://localhost:8989/api/user",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+    
+                if (!response.status === 200) {
+                    throw new Error("Token inválido");
+                }
+
+                return response.data.id; 
+                
+            } catch (err) {
+                console.error("Erro ao obter o ID do usuário", err);
+                return null;
+            }
+        }
     }
 
     // função para resetar os estados
@@ -57,6 +86,7 @@ export const UserStorage = ({ children }) => {
         window.location.href = "/login";
     }
 
+    // função para logar
     async function userLogin(email, password) {
         try {
             setError(null);
@@ -81,6 +111,7 @@ export const UserStorage = ({ children }) => {
         }
     }
 
+    // função para registrar usuário
     async function userRegister(name, email, password) {
         try {
             setError(null);
@@ -114,6 +145,7 @@ export const UserStorage = ({ children }) => {
                 userLogin,
                 userLogout,
                 userRegister,
+                getUserId,
                 data,
                 logado,
                 loading,

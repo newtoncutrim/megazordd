@@ -1,5 +1,13 @@
 .TodoForm{
     margin-bottom: 1.5rem;
+    border-bottom: 1px solid #555;
+
+}
+
+.titleTask{
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .input{
@@ -13,17 +21,20 @@
 
 }
 
-.select{
+.textarea{
   font-size: 1.25em;
   padding: .3rem;
+  border: none;
+  outline: none;
   margin-bottom: 10px;
-  border: 1px solid #ddd;
   border-radius: 3px;
   width: 100%;
 }
+
 .buttonTodo{
   background-color: #55ffff;
   padding: .5rem 1.2rem;
+  margin-bottom: 1rem;
   font-size: 1em;
   color: #171923;
   border: none;
@@ -36,3 +47,14 @@
 .buttonTodo:hover {
   opacity: 1;
 }
+
+.error{
+    font-family: "Righteous", sans-serif;
+    line-height: 1;
+    font-size: 1rem;
+    color: red;
+    margin-bottom: 1.5rem;
+}
+
+
+

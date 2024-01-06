@@ -67,32 +67,34 @@ const Tasks = () => {
     };
 
     // função para pesquisar uma tarefa
-    function handleSearch (){
-        console.log('realizando pesquisando')
+    function handleSearch() {
+        console.log("realizando pesquisando");
     }
 
     return (
         <section className={styles.sectionTask}>
             <div className={styles.menuTask}>
-                <h2>Menu lateral</h2>
-                <div className={styles.iconeSair} onClick={userLogout}>
-                    <IoExitOutline />
-                </div>
+                <TodoForm addTodo={addTodo} />
+                <Filter
+                        filter={filter}
+                        setFilter={setFilter}
+                        sort={sort}
+                        setSort={setSort}
+                    />
+                    <p>Sair :</p>
+                    <IoExitOutline  className={styles.iconeSair} onClick={userLogout} />
             </div>
 
             <div className={styles.contentTask}>
                 <div className={styles.tituloContentTask}>
-                    <Search search={search} setSearch={setSearch}
-                    handleSearch={handleSearch}
-                     />
+                    <Search
+                        search={search}
+                        setSearch={setSearch}
+                        handleSearch={handleSearch}
+                    />
+                   
                 </div>
                 <div className={styles.taskTodo}>
-                    <TodoForm addTodo={addTodo} />
-                    <Filter
-                        filter={filter}
-                        setFilter={setFilter}
-                        setSort={setSort}
-                    />
                     <div className={styles.todoList}>
                         {todos
                             .filter((todo) =>
