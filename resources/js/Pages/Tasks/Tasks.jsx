@@ -14,38 +14,47 @@ const Tasks = () => {
     const [sort, setSort] = useState("Asc");
     const [search, setSearch] = useState("");
 
-    const fetchTasks = async () => {
+    const fetchTasksUser = async () => {
         const userId = await getUserId();
         const token = localStorage.getItem("token");
+
         if (token) {
             try {
                 const response = await axios.get(
-                    `http://localhost:8989/api/tasks`,
+                    `http://localhost:8989/api/user/${userId}/tasks`,
                     {
-                      params: { user_id: userId },
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
                     }
                 );
-                console.log(response.data.data);
+
                 setTasks(response.data.data);
             } catch (error) {
-                console.error("Erro ao buscar tarefas do usuário", error);
+                if (error.response) {
+                    console.error(
+                        "Erro na resposta do servidor:",
+                        error.response.data
+                    );
+                } else if (error.request) {
+                    console.error("Erro na requisição:", error.request);
+                } else {
+                    console.error("Erro desconhecido:", error.message);
+                }
             }
         } else {
-          window.location.replace("/login");
+            window.location.replace("/login");
         }
     };
 
     useEffect(() => {
-        fetchTasks();
+        fetchTasksUser();
     }, []);
 
     return (
         <section className={styles.sectionTask}>
             <div className={styles.menuTask}>
-                <TodoForm fetchTasks={fetchTasks} />
+                <TodoForm fetchTasksUser={fetchTasksUser} />
                 <Filter
                     filter={filter}
                     setFilter={setFilter}
@@ -64,7 +73,7 @@ const Tasks = () => {
                     <Search
                         search={search}
                         setSearch={setSearch}
-                        fetchTasks={fetchTasks}
+                        fetchTasksUser={fetchTasksUser}
                     />
                 </div>
                 <div className={styles.taskTodo}>
@@ -75,6 +84,7 @@ const Tasks = () => {
                                 <p>Descrição: {task.description}</p>
                             </div>
                         ))}
+
                         {/* {tasks
               .filter((task) =>
                 filter === "All"

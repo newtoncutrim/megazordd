@@ -30,7 +30,6 @@ class TaskApiController extends Controller
     public function store(TaskCreateRequest $request): JsonResponse
     {
         $userId = Auth::id();
-        dd($userId);
         $task = $this->service->new($request->all());
 
         if (!$task) {
