@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TaskApiController;
@@ -35,7 +36,9 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
+    Route::get('/user/{user}/tasks', [TaskApiController::class, 'taskUser']);
     Route::apiResource('/tasks', TaskApiController::class);
+
 });
 
 

@@ -29,6 +29,8 @@ class TaskApiController extends Controller
      */
     public function store(TaskCreateRequest $request): JsonResponse
     {
+        $userId = Auth::id();
+        dd($userId);
         $task = $this->service->new($request->all());
 
         if (!$task) {
@@ -79,5 +81,16 @@ class TaskApiController extends Controller
         return response()->json(["message" => "Task deleted successfully"], Response::HTTP_OK);
     }
 
-   
+    public function taskUser(Request $request ,$userId){
+
+        if (Auth::id() != $userId) {
+            return response()->json(["error" => "Unauthorized"], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $tasks = $this->service->findTasksForUser($userId);
+
+        return response()->json(["data" => $tasks], Response::HTTP_OK);
+    }
+
+
 }

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Carbon\Carbon;
 
+use App\Models\Task;
 use App\Repository\TaskRepository;
 
 class TaskService {
@@ -47,5 +48,10 @@ class TaskService {
     public function dataFormat($data){
 
         return Carbon::parse($data)->format('d/m/Y');
+    }
+
+    public function findTasksForUser($userId){
+
+        return $this->repository->findTasksForUser($userId);
     }
 }
