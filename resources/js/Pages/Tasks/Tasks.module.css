@@ -113,3 +113,15 @@
   transition: 0.3s;
 }
 
+
+@media (max-width: 40rem) {
+  .sectionTask {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menuTask {
+    margin-bottom: 0px;
+  }
+
+}
