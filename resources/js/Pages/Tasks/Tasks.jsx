@@ -6,7 +6,7 @@ import Search from "./Todo/Search";
 import Filter from "./Todo/Filter";
 import { UserContext } from "@/UserContext";
 import { IoExitOutline } from "react-icons/io5";
-import { FaCheck, FaTrashAlt  } from "react-icons/fa";
+import { FaCheck, FaTrashAlt } from "react-icons/fa";
 
 const Tasks = () => {
     const { getUserId, userLogout } = useContext(UserContext);
@@ -60,7 +60,8 @@ const Tasks = () => {
 
         if (token) {
             try {
-                const response = await axios.delete(`http://localhost:8989/api/tasks/${taskId}`,
+                const response = await axios.delete(
+                    `http://localhost:8989/api/tasks/${taskId}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -68,17 +69,18 @@ const Tasks = () => {
                     }
                 );
 
-                console.log(response)
+                console.log(response);
 
-                setTasks((prevTasks) => prevTasks.filter(task => task.id !== taskId));
+                setTasks((prevTasks) =>
+                    prevTasks.filter((task) => task.id !== taskId)
+                );
             } catch (error) {
                 console.error("Erro ao excluir tarefa:", error);
             }
-        }    
+        }
     };
 
-
-    const completeTaskUser = async (taskId) => {
+    const completedTaskUser = async (taskId) => {
         const userId = await getUserId();
         const token = localStorage.getItem("token");
     
@@ -86,7 +88,7 @@ const Tasks = () => {
             try {
                 const response = await axios.put(
                     `http://localhost:8989/api/tasks/${taskId}`,
-                    { completed: true }, 
+                    null,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -94,7 +96,7 @@ const Tasks = () => {
                     }
                 );
     
-                console.log(response);
+                console.log(response.data.data);
     
                 setTasks((prevTasks) =>
                     prevTasks.map((task) =>
@@ -102,16 +104,10 @@ const Tasks = () => {
                     )
                 );
             } catch (error) {
-                if (error.response && error.response.status === 422) {
-                    console.error("Erro ao completar tarefa. A tarefa pode já estar concluída.");
-                } else {
-                    console.error("Erro ao completar tarefa:", error);
-                }
+                console.error(error);
             }
         }
     };
-    
-    
 
     return (
         <section className={styles.sectionTask}>
@@ -141,15 +137,22 @@ const Tasks = () => {
                 <div className={styles.taskTodo}>
                     <div className={styles.taskList}>
                         {tasks.map((task) => (
-                            <div key={task.id} className={`${styles.tasksUser} ${task.completed ? styles.completedTask : ''}`}>
+                            <div
+                                key={task.id}
+                                className={`${styles.tasksUser} ${
+                                    task.completed ? styles.completedTask : ""
+                                }`}
+                            >
                                 <div className={styles.taskContent}>
                                     <h2>Título: {task.title}</h2>
                                     <p>Descrição: {task.description}</p>
                                 </div>
                                 <div>
-                                     <button
+                                    <button
                                         className={styles.completed}
-                                        onClick={() => completeTaskUser(task.id)}
+                                        onClick={() =>
+                                            completedTaskUser(task.id)
+                                        }
                                     >
                                         <FaCheck />
                                     </button>
@@ -157,7 +160,7 @@ const Tasks = () => {
                                         className={styles.remove}
                                         onClick={() => deleteTaskUser(task.id)}
                                     >
-                                        <FaTrashAlt  />
+                                        <FaTrashAlt />
                                     </button>
                                 </div>
                             </div>
