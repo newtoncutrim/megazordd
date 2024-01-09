@@ -6,6 +6,7 @@ import Search from "./Todo/Search";
 import Filter from "./Todo/Filter";
 import { UserContext } from "@/UserContext";
 import { IoExitOutline } from "react-icons/io5";
+import { FaCheck, FaTrashAlt  } from "react-icons/fa";
 
 const Tasks = () => {
     const { getUserId, userLogout } = useContext(UserContext);
@@ -51,6 +52,67 @@ const Tasks = () => {
         fetchTasksUser();
     }, []);
 
+    const deleteTaskUser = async (taskId) => {
+        const userId = await getUserId();
+        const token = localStorage.getItem("token");
+
+        alert("Apagar tarefa?");
+
+        if (token) {
+            try {
+                const response = await axios.delete(`http://localhost:8989/api/tasks/${taskId}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
+                console.log(response)
+
+                setTasks((prevTasks) => prevTasks.filter(task => task.id !== taskId));
+            } catch (error) {
+                console.error("Erro ao excluir tarefa:", error);
+            }
+        }    
+    };
+
+
+    const completeTaskUser = async (taskId) => {
+        const userId = await getUserId();
+        const token = localStorage.getItem("token");
+    
+        if (token) {
+            try {
+                const response = await axios.put(
+                    `http://localhost:8989/api/tasks/${taskId}`,
+                    { completed: true }, 
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+    
+                console.log(response);
+    
+                setTasks((prevTasks) =>
+                    prevTasks.map((task) =>
+                        task.id === taskId ? { ...task, completed: true } : task
+                    )
+                );
+            } catch (error) {
+                if (error.response && error.response.status === 422) {
+                    console.error("Erro ao completar tarefa. A tarefa pode já estar concluída.");
+                } else {
+                    console.error("Erro ao completar tarefa:", error);
+                }
+            }
+        }
+    };
+    
+    
+
     return (
         <section className={styles.sectionTask}>
             <div className={styles.menuTask}>
@@ -77,38 +139,29 @@ const Tasks = () => {
                     />
                 </div>
                 <div className={styles.taskTodo}>
-                    <div className={styles.todoList}>
+                    <div className={styles.taskList}>
                         {tasks.map((task) => (
-                            <div key={task.id}>
-                                <p>Title: {task.title}</p>
-                                <p>Descrição: {task.description}</p>
+                            <div key={task.id} className={`${styles.tasksUser} ${task.completed ? styles.completedTask : ''}`}>
+                                <div className={styles.taskContent}>
+                                    <h2>Título: {task.title}</h2>
+                                    <p>Descrição: {task.description}</p>
+                                </div>
+                                <div>
+                                     <button
+                                        className={styles.completed}
+                                        onClick={() => completeTaskUser(task.id)}
+                                    >
+                                        <FaCheck />
+                                    </button>
+                                    <button
+                                        className={styles.remove}
+                                        onClick={() => deleteTaskUser(task.id)}
+                                    >
+                                        <FaTrashAlt  />
+                                    </button>
+                                </div>
                             </div>
                         ))}
-
-                        {/* {tasks
-              .filter((task) =>
-                filter === "All"
-                  ? true
-                  : filter === "Completed"
-                  ? task.isCompleted
-                  : !task.isCompleted
-              )
-              .filter((task) =>
-                task.text.toLowerCase().includes(search.toLowerCase())
-              )
-              .sort((a, b) =>
-                sort === "Asc"
-                  ? a.text.localeCompare(b.text)
-                  : b.text.localeCompare(a.text)
-              )
-              .map((task) => (
-                <Todo
-                  key={task.id}
-                  todo={task}
-                  removeTodos={() => removeTodos(task.id)}
-                  completeTodo={() => completeTodo(task.id)}
-                />
-              ))} */}
                     </div>
                 </div>
             </div>

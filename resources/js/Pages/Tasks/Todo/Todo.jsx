@@ -42,23 +42,36 @@ const Todo = ({ todo, removeTodos, completeTodo }) => {
                         <p>Detalhes da Tarefa: {taskDetails.description}</p>
                     )}
                 </div>
-                <div>
-                    <button
-                        className={styles.complete}
-                        onClick={() => completeTodo(todo.id)}
-                    >
-                        Completar
-                    </button>
-                    <button
-                        className={styles.remove}
-                        onClick={() => removeTodos(todo.id)}
-                    >
-                        x
-                    </button>
-                </div>
+               
             </div> */}
         </div>
     );
 };
 
 export default Todo;
+
+
+         {/* {tasks
+              .filter((task) =>
+                filter === "All"
+                  ? true
+                  : filter === "Completed"
+                  ? task.isCompleted
+                  : !task.isCompleted
+              )
+              .filter((task) =>
+                task.text.toLowerCase().includes(search.toLowerCase())
+              )
+              .sort((a, b) =>
+                sort === "Asc"
+                  ? a.text.localeCompare(b.text)
+                  : b.text.localeCompare(a.text)
+              )
+              .map((task) => (
+                <Todo
+                  key={task.id}
+                  todo={task}
+                  removeTodos={() => removeTodos(task.id)}
+                  completeTodo={() => completeTodo(task.id)}
+                />
+              ))} */}
