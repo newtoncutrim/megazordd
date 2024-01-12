@@ -64,3 +64,28 @@
     opacity: 0.5;
     cursor: wait;
 }
+
+@media (max-width: 40rem) {
+    .home::after {
+        display: none;
+    }
+    .home {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titleHome {
+        font-size: 5rem;
+    }
+    .subTitleHome {
+        font-size: 1.5rem;
+    }
+    .homeContent{
+        align-items: center;
+    }
+    body {
+        background: url("../../../img/local-de-trabalho.jpg") no-repeat center center;
+        width: 100%;
+        background-size: cover;
+    }
+  }
