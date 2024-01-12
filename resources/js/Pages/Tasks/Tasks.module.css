@@ -47,7 +47,7 @@
   padding-bottom: 20px;
 }
 
-.iconeSair{
+.iconeSair {
   width: 25px;
   height: auto;
   cursor: pointer;
@@ -64,27 +64,27 @@
   justify-content: space-between;
 }
 
-.taskContent{
+.taskContent {
   max-width: 600px;
   word-wrap: break-word;
 
 }
+
 .taskContent h2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
 .taskContent p {
   font-size: 16px;
   line-height: 18px;
   color: aqua;
 }
 
-
-
 .completed {
   background-color: #5cb85c;
-  padding: .5rem 1.2rem;
-  font-size: 1em;
+  padding: 6px 10px;
+  font-size: 1rem;
   color: #171923;
   border: none;
   border-radius: 3px;
@@ -92,9 +92,7 @@
   opacity: 0.8;
   transition: 0.3s;
   margin-bottom: 10px;
-
 }
-
 
 .completedTask {
   text-decoration: line-through;
@@ -103,14 +101,63 @@
 
 .remove {
   background-color: #d9534f;
-  padding: .5rem 1.2rem;
-  font-size: 1em;
+  padding: 6px 10px;
+  font-size: 1rem;
   color: #171923;
   border: none;
   border-radius: 3px;
   cursor: pointer;
   opacity: 0.8;
   transition: 0.3s;
+}
+
+.edit {
+  background-color: #007bff;
+  padding: 6px 10px;
+  font-size: 1rem;
+  color: #171923;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.input {
+  font-size: 1em;
+  padding: 5px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.textarea {
+  font-size: 1em;
+  padding: 5px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.divEdit {
+  display: flex;
+  gap: 10px;
+}
+
+.divEdit button {
+  flex: 1;
+  background-color: #55ffff;
+  padding: 4px 8px;
+  font-size: 10px;
+  color: #171923;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 

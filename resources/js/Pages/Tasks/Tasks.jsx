@@ -6,7 +6,7 @@ import Search from "./Todo/Search";
 import Filter from "./Todo/Filter";
 import { UserContext } from "@/UserContext";
 import { IoExitOutline } from "react-icons/io5";
-import { FaCheck, FaTrashAlt } from "react-icons/fa";
+import { FaCheck, FaTrashAlt, FaPencilAlt } from "react-icons/fa";
 
 const Tasks = () => {
     const { getUserId, userLogout } = useContext(UserContext);
@@ -14,6 +14,7 @@ const Tasks = () => {
     const [filter, setFilter] = useState("All");
     const [sort, setSort] = useState("Asc");
     const [search, setSearch] = useState("");
+    const [editingTaskId, setEditingTaskId] = useState(null);
 
     const fetchTasksUser = async () => {
         const userId = await getUserId();
@@ -52,12 +53,10 @@ const Tasks = () => {
         fetchTasksUser();
     }, []);
 
+    // função para deletar tarefa
     const deleteTaskUser = async (taskId) => {
-        const userId = await getUserId();
         const token = localStorage.getItem("token");
-
         alert("Apagar tarefa?");
-
         if (token) {
             try {
                 const response = await axios.delete(
@@ -68,9 +67,6 @@ const Tasks = () => {
                         },
                     }
                 );
-
-                console.log(response);
-
                 setTasks((prevTasks) =>
                     prevTasks.filter((task) => task.id !== taskId)
                 );
@@ -80,34 +76,47 @@ const Tasks = () => {
         }
     };
 
-    const completedTaskUser = async (taskId) => {
-        const userId = await getUserId();
+    // função para executar edição da tarefa
+    const handleEditInputChange = (e, taskId, field) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === taskId ? { ...task, [field]: e.target.value } : task
+            )
+        );
+    };
+
+    const saveEditedTask = async (taskId) => {
         const token = localStorage.getItem("token");
-    
+        const editedTask = tasks.find((task) => task.id === taskId);
+
         if (token) {
             try {
                 const response = await axios.put(
                     `http://localhost:8989/api/tasks/${taskId}`,
-                    null,
+                    {
+                        title: editedTask.title,
+                        description: editedTask.description,
+                    },
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
                     }
                 );
-    
-                console.log(response.data.data);
-    
-                setTasks((prevTasks) =>
-                    prevTasks.map((task) =>
-                        task.id === taskId ? { ...task, completed: true } : task
-                    )
-                );
+                setEditingTaskId(null);
             } catch (error) {
-                console.error(error);
+                console.error("Erro ao salvar a tarefa editada:", error);
             }
         }
     };
+// função para cancelar edição
+    const cancelEdit = () => {
+        setEditingTaskId(null); // Saia do modo de edição
+        // Se desejar, você pode adicionar lógica adicional aqui, como reverter as alterações feitas nos campos de edição.
+    };
+    
+
+
 
     return (
         <section className={styles.sectionTask}>
@@ -144,10 +153,65 @@ const Tasks = () => {
                                 }`}
                             >
                                 <div className={styles.taskContent}>
-                                    <h2>Título: {task.title}</h2>
-                                    <p>Descrição: {task.description}</p>
+                                    {editingTaskId === task.id ? (
+                                        // Formulário de edição
+                                        <div>
+                                            <input
+                                                className={styles.input}
+                                                type="text"
+                                                value={task.title}
+                                                onChange={(e) =>
+                                                    handleEditInputChange(
+                                                        e,
+                                                        task.id,
+                                                        "title"
+                                                    )
+                                                }
+                                            />
+                                            <textarea
+                                                className={styles.textarea}
+                                                type="text"
+                                                value={task.description}
+                                                onChange={(e) =>
+                                                    handleEditInputChange(
+                                                        e,
+                                                        task.id,
+                                                        "description"
+                                                    )
+                                                }
+                                            />
+                                            <div className={styles.divEdit}>
+                                                <button
+                                                    onClick={() =>
+                                                        saveEditedTask(task.id)
+                                                    }
+                                                >
+                                                    Salvar
+                                                </button>
+                                                <button
+                                                    onClick={() => cancelEdit()}
+                                                >
+                                                    Cancelar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        // Visualização padrão
+                                        <div className={styles.taskContent}>
+                                            <h2>Título: {task.title}</h2>
+                                            <p>Descrição: {task.description}</p>
+                                        </div>
+                                    )}
                                 </div>
                                 <div>
+                                    <button
+                                        className={styles.edit}
+                                        onClick={() =>
+                                            setEditingTaskId(task.id)
+                                        }
+                                    >
+                                        <FaPencilAlt />
+                                    </button>
                                     <button
                                         className={styles.completed}
                                         onClick={() =>
