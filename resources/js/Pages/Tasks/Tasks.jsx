@@ -56,8 +56,10 @@ const Tasks = () => {
     // função para deletar tarefa
     const deleteTaskUser = async (taskId) => {
         const token = localStorage.getItem("token");
-        alert("Apagar tarefa?");
-        if (token) {
+
+        const shouldDelete = window.confirm("Tem certeza que deseja apagar a tarefa?");
+
+        if (token && shouldDelete) {
             try {
                 const response = await axios.delete(
                     `http://localhost:8989/api/tasks/${taskId}`,
@@ -84,7 +86,7 @@ const Tasks = () => {
             )
         );
     };
-
+// função para salvar tarefa editada
     const saveEditedTask = async (taskId) => {
         const token = localStorage.getItem("token");
         const editedTask = tasks.find((task) => task.id === taskId);
@@ -109,13 +111,50 @@ const Tasks = () => {
             }
         }
     };
+
 // função para cancelar edição
     const cancelEdit = () => {
-        setEditingTaskId(null); // Saia do modo de edição
-        // Se desejar, você pode adicionar lógica adicional aqui, como reverter as alterações feitas nos campos de edição.
+        setEditingTaskId(null); 
     };
-    
 
+    // função para marcar a tarefa como completa
+
+    
+// const completedTaskUser = async (taskId) => {
+//     const token = localStorage.getItem("token");
+
+//     if (token) {
+//         try {
+//             const response = await axios.put(
+//                 `http://localhost:8989/api/tasks/${taskId}`,
+//                 null,
+//                 {
+//                     headers: {
+//                         Authorization: `Bearer ${token}`,
+//                     },
+//                 }
+//             );
+
+//             console.log(response.data.data);
+
+//             setTasks((prevTasks) =>
+//                 prevTasks.map((task) =>
+//                     task.id === taskId ? { ...task, completed: true } : task
+//                 )
+//             );
+//         } catch (error) {
+//             console.error(error);
+//         }
+//     }
+// };
+
+const toggleCompleted = (taskId) => {
+    setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+            task.id === taskId ? { ...task, completed: !task.completed } : task
+        )
+    );
+};
 
 
     return (
@@ -215,7 +254,7 @@ const Tasks = () => {
                                     <button
                                         className={styles.completed}
                                         onClick={() =>
-                                            completedTaskUser(task.id)
+                                            toggleCompleted(task.id)
                                         }
                                     >
                                         <FaCheck />
