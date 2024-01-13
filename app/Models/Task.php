@@ -15,6 +15,7 @@ class Task extends Model
         'description',
         'due_date',
         'user_id',
+        'finished',
     ];
     use HasFactory;
 }
