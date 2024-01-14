@@ -1,16 +1,21 @@
+import React from "react";
 import styles from "./Filter.module.css";
 
 const Filter = ({ filter, setFilter, setSort }) => {
+    const handleSort = (order) => {
+        setSort(order);
+    };
+
     return (
         <div className={styles.filter}>
             <h2 className={styles.titleFilter}>Filtrar:</h2>
             <div className={styles.filterOptions}>
-            <div className={styles.ordemTask}>
+                <div className={styles.ordemTask}>
                     <p>Ordem Alfabética</p>
-                    <button onClick={() => setSort("Asc")}>Asc</button>
-                    <button onClick={() => setSort("Desc")}>Desc</button>
+                    <button onClick={() => handleSort("Asc")}>Asc</button>
+                    <button onClick={() => handleSort("Desc")}>Desc</button>
                 </div>
-                <div >
+                <div>
                     <p className={styles.status}>status:</p>
                     <select
                         value={filter}
@@ -21,7 +26,6 @@ const Filter = ({ filter, setFilter, setSort }) => {
                         <option value="Incomplete">Incompletas</option>
                     </select>
                 </div>
-              
             </div>
         </div>
     );

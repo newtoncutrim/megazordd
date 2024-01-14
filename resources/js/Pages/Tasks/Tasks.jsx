@@ -187,6 +187,20 @@ const completedTaskUser = async (taskId) => {
     }
 };
 
+// Função para ordenar as tarefas com base no título em ordem alfabética
+const handleSort = (order) => {
+    setSort(order);
+    if (order === "Asc") {
+        setTasks((prevTasks) =>
+            prevTasks.slice().sort((a, b) => a.title.localeCompare(b.title))
+        );
+    } else if (order === "Desc") {
+        setTasks((prevTasks) =>
+            prevTasks.slice().sort((a, b) => b.title.localeCompare(a.title))
+        );
+    }
+};
+
 
 
     return (
@@ -197,7 +211,7 @@ const completedTaskUser = async (taskId) => {
                     filter={filter}
                     setFilter={setFilter}
                     sort={sort}
-                    setSort={setSort}
+                    setSort={handleSort}
                 />
                 <p>Sair :</p>
                 <IoExitOutline
