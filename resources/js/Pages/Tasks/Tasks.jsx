@@ -15,6 +15,7 @@ const Tasks = () => {
     const [sort, setSort] = useState("Asc");
     const [search, setSearch] = useState("");
     const [editingTaskId, setEditingTaskId] = useState(null);
+    const [originalTasks, setOriginalTasks] = useState([]);
 
     const fetchTasksUser = async () => {
         const userId = await getUserId();
@@ -31,16 +32,17 @@ const Tasks = () => {
                     }
                 );
 
+                setTasks(response.data.data);
+                setOriginalTasks(response.data.data);
 
-                 // Mapeia as tarefas do servidor e adiciona a propriedade "completed" para fins de estilo
-                 const tasksWithCompletionStatus = response.data.data.map((task) => ({
-                    ...task,
-                    completed: task.finished, // ou qualquer outra lógica que você estiver usando
-                }));
+                const tasksWithCompletionStatus = response.data.data.map(
+                    (task) => ({
+                        ...task,
+                        completed: task.finished, 
+                    })
+                );
 
                 setTasks(tasksWithCompletionStatus);
-
-                
             } catch (error) {
                 if (error.response) {
                     console.error(
@@ -129,79 +131,85 @@ const Tasks = () => {
     };
 
     // Função para marcar a tarefa como completa
-    // Função para marcar a tarefa como completa
-const completedTaskUser = async (taskId) => {
-    const token = localStorage.getItem("token");
-    const completedTask = tasks.find((task) => task.id === taskId);
+    const completedTaskUser = async (taskId) => {
+        const token = localStorage.getItem("token");
+        const completedTask = tasks.find((task) => task.id === taskId);
 
-    if (token) {
-        try {
-            const response = await axios.put(
-                `http://localhost:8989/api/tasks/${taskId}`,
-                {
-                    title: completedTask.title,
-                    description: completedTask.description,
-                    finished: true,
-                },
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
+        if (token) {
+            try {
+                const response = await axios.put(
+                    `http://localhost:8989/api/tasks/${taskId}`,
+                    {
+                        title: completedTask.title,
+                        description: completedTask.description,
+                        finished: true,
                     },
-                }
-            );
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
 
-            console.log(response.data.data);
+                setTasks(response.data.data);
+                setOriginalTasks(response.data.data);
 
-            // Atualiza o estado local de tarefas
-            setTasks((prevTasks) =>
-                prevTasks.map((task) =>
-                    task.id === taskId
-                        ? {
-                              ...task,
-                              finished: true,
-                              completed: !task.completed,
-                          }
-                        : task
-                )
-            );
-
-            // Obtém as tarefas do localStorage
-            const tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
-
-            // Atualiza o estado local e o localStorage com as tarefas modificadas
-            const updatedTasks = tasksFromLocalStorage.map((task) =>
-                task.id === taskId
-                    ? {
-                          ...task,
-                          finished: true,
-                          completed: !task.completed,
-                      }
-                    : task
-            );
-
-            localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-
-        } catch (error) {
-            console.error(error);
+                // Atualiza o estado local de tarefas
+                setTasks((prevTasks) =>
+                    prevTasks.map((task) =>
+                        task.id === taskId
+                            ? {
+                                  ...task,
+                                  finished: true,
+                                  completed: !task.completed,
+                              }
+                            : task
+                    )
+                );
+            } catch (error) {
+                console.error(error);
+            }
         }
-    }
-};
+    };
 
-// Função para ordenar as tarefas com base no título em ordem alfabética
-const handleSort = (order) => {
-    setSort(order);
-    if (order === "Asc") {
-        setTasks((prevTasks) =>
-            prevTasks.slice().sort((a, b) => a.title.localeCompare(b.title))
-        );
-    } else if (order === "Desc") {
-        setTasks((prevTasks) =>
-            prevTasks.slice().sort((a, b) => b.title.localeCompare(a.title))
-        );
-    }
-};
+    // Função para ordenar as tarefas com base no título em ordem alfabética
+    const handleSort = (order) => {
+        setSort(order);
+        if (order === "Asc") {
+            setTasks((prevTasks) =>
+                prevTasks.slice().sort((a, b) => a.title.localeCompare(b.title))
+            );
+        } else if (order === "Desc") {
+            setTasks((prevTasks) =>
+                prevTasks.slice().sort((a, b) => b.title.localeCompare(a.title))
+            );
+        }
+    };
 
+    const handleFilter = (status) => {
+        setFilter(status);
 
+        if (status === 'All') {
+            fetchTasksUser()
+        } else if (status === "Completed") {
+            const completedTasks = originalTasks.filter((task) => task.finished);
+            setTasks((prevTasks) =>
+                completedTasks.map((task) => ({
+                    ...task,
+                    completed: true,
+                }))
+            );
+        } else {
+            const incompleteTasks = originalTasks.filter((task) => !task.finished);
+            setTasks((prevTasks) =>
+                incompleteTasks.map((task) => ({
+                    ...task,
+                    completed: false,
+                }))
+            );
+        }
+    };
+    
 
     return (
         <section className={styles.sectionTask}>
@@ -209,7 +217,7 @@ const handleSort = (order) => {
                 <TodoForm fetchTasksUser={fetchTasksUser} />
                 <Filter
                     filter={filter}
-                    setFilter={setFilter}
+                    setFilter={handleFilter}
                     sort={sort}
                     setSort={handleSort}
                 />
