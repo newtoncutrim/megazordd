@@ -31,7 +31,16 @@ const Tasks = () => {
                     }
                 );
 
-                setTasks(response.data.data);
+
+                 // Mapeia as tarefas do servidor e adiciona a propriedade "completed" para fins de estilo
+                 const tasksWithCompletionStatus = response.data.data.map((task) => ({
+                    ...task,
+                    completed: task.finished, // ou qualquer outra lógica que você estiver usando
+                }));
+
+                setTasks(tasksWithCompletionStatus);
+
+                
             } catch (error) {
                 if (error.response) {
                     console.error(
@@ -57,7 +66,9 @@ const Tasks = () => {
     const deleteTaskUser = async (taskId) => {
         const token = localStorage.getItem("token");
 
-        const shouldDelete = window.confirm("Tem certeza que deseja apagar a tarefa?");
+        const shouldDelete = window.confirm(
+            "Tem certeza que deseja apagar a tarefa?"
+        );
 
         if (token && shouldDelete) {
             try {
@@ -86,7 +97,7 @@ const Tasks = () => {
             )
         );
     };
-// função para salvar tarefa editada
+    // função para salvar tarefa editada
     const saveEditedTask = async (taskId) => {
         const token = localStorage.getItem("token");
         const editedTask = tasks.find((task) => task.id === taskId);
@@ -112,49 +123,70 @@ const Tasks = () => {
         }
     };
 
-// função para cancelar edição
+    // função para cancelar edição
     const cancelEdit = () => {
-        setEditingTaskId(null); 
+        setEditingTaskId(null);
     };
 
-    // função para marcar a tarefa como completa
+    // Função para marcar a tarefa como completa
+    // Função para marcar a tarefa como completa
+const completedTaskUser = async (taskId) => {
+    const token = localStorage.getItem("token");
+    const completedTask = tasks.find((task) => task.id === taskId);
 
-    
-// const completedTaskUser = async (taskId) => {
-//     const token = localStorage.getItem("token");
+    if (token) {
+        try {
+            const response = await axios.put(
+                `http://localhost:8989/api/tasks/${taskId}`,
+                {
+                    title: completedTask.title,
+                    description: completedTask.description,
+                    finished: true,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
-//     if (token) {
-//         try {
-//             const response = await axios.put(
-//                 `http://localhost:8989/api/tasks/${taskId}`,
-//                 null,
-//                 {
-//                     headers: {
-//                         Authorization: `Bearer ${token}`,
-//                     },
-//                 }
-//             );
+            console.log(response.data.data);
 
-//             console.log(response.data.data);
+            // Atualiza o estado local de tarefas
+            setTasks((prevTasks) =>
+                prevTasks.map((task) =>
+                    task.id === taskId
+                        ? {
+                              ...task,
+                              finished: true,
+                              completed: !task.completed,
+                          }
+                        : task
+                )
+            );
 
-//             setTasks((prevTasks) =>
-//                 prevTasks.map((task) =>
-//                     task.id === taskId ? { ...task, completed: true } : task
-//                 )
-//             );
-//         } catch (error) {
-//             console.error(error);
-//         }
-//     }
-// };
+            // Obtém as tarefas do localStorage
+            const tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks")) || [];
 
-const toggleCompleted = (taskId) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) =>
-            task.id === taskId ? { ...task, completed: !task.completed } : task
-        )
-    );
+            // Atualiza o estado local e o localStorage com as tarefas modificadas
+            const updatedTasks = tasksFromLocalStorage.map((task) =>
+                task.id === taskId
+                    ? {
+                          ...task,
+                          finished: true,
+                          completed: !task.completed,
+                      }
+                    : task
+            );
+
+            localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
 };
+
 
 
     return (
@@ -254,7 +286,7 @@ const toggleCompleted = (taskId) => {
                                     <button
                                         className={styles.completed}
                                         onClick={() =>
-                                            toggleCompleted(task.id)
+                                            completedTaskUser(task.id)
                                         }
                                     >
                                         <FaCheck />

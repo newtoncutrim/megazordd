@@ -8,9 +8,9 @@ const TodoForm = ({ fetchTasksUser }) => {
     const [description, setDescription] = React.useState("");
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState(null);
-
     const { getUserId } = React.useContext(UserContext);
 
+    // função para adicionar tarefa
     const addTodo = async () => {
         if (!value || !description) {
             setError("Por favor, preencha todos os campos.");
