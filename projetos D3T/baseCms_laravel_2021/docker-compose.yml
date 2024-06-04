@@ -1,0 +1,42 @@
+version: "3.3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./devops/Dockerfile.local
+    ports:
+      - 82:8000
+      - 5173:5173
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - base_cms
+    tty: true
+    container_name: base_cms
+  mysql_base_cms:
+    image: mariadb:10.3
+    entrypoint: docker-entrypoint.sh --sql-mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+    ports:
+      - 3306:3306
+    networks:
+      - base_cms
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=base_cms
+    container_name: mysql_base_cms
+  phpmyadmin_base_cms:
+    image: beeyev/phpmyadmin-lightweight
+    ports:
+      - 8181:80
+    networks:
+      - base_cms    
+    environment:
+      PMA_HOST: mysql_base_cms
+      PMA_THEME: BooDark
+      UPLOAD_LIMIT: 2000M
+    container_name: phpmyadmin_base_cms
+networks:
+  base_cms:
+    driver: bridge

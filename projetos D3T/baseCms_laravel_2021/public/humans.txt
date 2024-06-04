@@ -1,0 +1,25 @@
+/* TEAM */
+    Developer: Bernardo Benini Fantin
+    Facebook: /bernardo.fantin
+    LinkedIn: /bernardo-benini-fantin-329b681a0
+    Email: bernardo.fantin@gmail.com
+    Location: Concórdia, Santa Catarina, Brasil
+
+    Developer: Anderson da Rocha Vanzo
+    Facebook: /AKnownt
+    LinkedIn: /anderson-Vanzo
+    Email: anderson.vanzo01@gmail.com
+    Location: Concórdia, Santa Catarina, Brasil
+
+    Developer: Arthur Santori Gasparin
+    Facebook: -
+    LinkedIn: /arthur-sartori
+    Email: arthursantori@gmail.com
+    Location: Concórdia, Santa Catarina, Brasil
+
+/* SITE */    
+
+    Last update: 2021/05/19
+    Standards: HTML5, CSS3, JS
+    Components: Bootstrap 4, SCSS
+    Software: Visual Studio Code, Google Chrome

@@ -1,0 +1,17 @@
+FROM webdevops/php-apache-dev:8.2
+
+COPY ./devops/apache/localhost.conf /etc/apache2/sites-available/localhost.conf
+
+WORKDIR /var/www/html
+
+# RUN a2dissite 000-default.conf \
+#     && a2ensite localhost.conf \
+#     && service apache2 restart
+
+RUN apt-get update && apt-get install -y gnupg2 && apt-get install -y curl \
+    && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm i -g npm
+
+COPY ./devops/supervisor/phpserve.conf /opt/docker/etc/supervisor.d/phpserve.conf
+COPY ./devops/supervisor/vuestart.conf /opt/docker/etc/supervisor.d/vuestart.conf

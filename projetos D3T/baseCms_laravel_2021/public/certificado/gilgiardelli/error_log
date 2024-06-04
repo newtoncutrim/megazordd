@@ -1,0 +1,3 @@
+[31-Oct-2017 13:03:42 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/eventoho/public_html/certificado2/certificado.php on line 13
+[31-Oct-2017 13:04:44 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/eventoho/public_html/certificado2/certificado.php on line 13
+[31-Oct-2017 13:04:46 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/eventoho/public_html/certificado2/certificado.php on line 13

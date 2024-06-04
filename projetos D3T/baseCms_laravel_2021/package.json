@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.0.96",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "axios": "^0.18",
+    "bootstrap": "^4.3.0",
+    "cross-env": "^5.1",
+    "jquery": "^3.4",
+    "laravel-vite-plugin": "^0.6.1",
+    "lodash": "^4.17.5",
+    "popper.js": "^1.12",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.52.1",
+    "sass-loader": "^7.1.0",
+    "select2": "^4.0.6-rc.1",
+    "v-mask": "^1.3.3",
+    "v-money": "^0.8.1",
+    "vite": "^3.2.5",
+    "vue": "^2.7.0",
+    "vue-carousel": "^0.18.0",
+    "vue-sweetalert2": "^2.0.5",
+    "vue-template-compiler": "^2.6.10",
+    "vue2-editor": "^2.4.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.3.0",
+    "admin-lte": "^2.4.0",
+    "flatpickr": "^4.6.9",
+    "tinymce": "^5.10.9",
+    "v-click-outside": "^3.1.2",
+    "vue-bootstrap-typeahead": "^0.2.6",
+    "vue-flatpickr-component": "^8.1.7",
+    "vue-multiselect": "^2.1.6",
+    "vue-pagination-2": "^3.0.91",
+    "vue-the-mask": "^0.11.1",
+    "vuetify": "^2.6.12"
+  }
+}

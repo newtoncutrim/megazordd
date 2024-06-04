@@ -1,0 +1,1761 @@
+#home__scroll {
+  animation: scroll 3s infinite ease-in-out;
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  bottom: 10vh;
+  height: 32px;
+  outline: none;
+  position: absolute;
+  right: calc(50% - 17px);
+  transform: rotateZ(-45deg);
+  width: 34px;
+  z-index: 1000;
+  @media screen and (max-width: 1480px) {
+    right: calc(42% - 17px);
+  }
+  @media screen and (max-width: 1024px) {
+    bottom: 35vh;
+    right: calc(50% - 17px);
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.buy-ticket-section {
+  background-color: $blue-purple;
+  color: white;
+  height: 100vh;
+  right: -100px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+  z-index: 2000;
+  @media screen and (max-width: 1025px) {
+    height: 65px;
+    padding: 0 22px;
+    right: 0;
+    top: 0;
+    width: 100vw;
+  }
+  @media screen and (max-width: 325px) {
+    padding: 0 5px;
+  }
+  &__call {
+    background-color: $blue-purple;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: calc(50% - 17px);
+    transform: rotate(45deg);
+    width: 20px;
+    @media screen and (max-width: 1025px) {
+      right: 50%;
+      transform: translate(50%, -50%) rotate(45deg);
+      top: 0;
+    }
+  }
+  &__hojinho {
+    align-items: center;
+    display: flex;
+    height: 140px;
+    justify-content: center;
+    @media screen and (max-width: 1025px) {
+      display: block;
+      height: inherit;
+      position: absolute;
+      top: calc(50% - 42px);
+    }
+    img {
+      height: 54px;
+      width: 33px;
+    }
+  }
+  &__bars {
+    position: absolute;
+    right: calc(50% - 8px);
+    top: calc(50% - 31px);
+    @media screen and (max-width: 1025px) {
+      top: calc(50% - 8px);
+      height: 25px;
+      right: calc(0% + 22px);
+      position: absolute;
+    }
+    @media screen and (max-width: 1025px) {
+      &-1 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1025px) {
+      &-2 {
+        display: none;
+      }
+    }
+  }
+  &__text {
+    bottom: 120px;
+    color: #ffffff;
+    font-family: $font-three;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15.0882px;
+    line-height: 17px;
+    letter-spacing: 0.2em;
+    position: absolute;
+    right: calc(-50% - 7.5px);
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    @media screen and (max-width: 1025px) {
+      top: calc(50% - 8px);
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+  }
+}
+
+#passport-buy-button {
+  border: 0;
+  cursor: pointer;
+  height: 0;
+  padding: 0;
+  width: 0;
+}
+
+.passport-active {
+  right: 0 !important;
+  transition: all 1s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  @media screen and (max-width: 1024px) {
+    top: -100px !important;
+  }
+}
+
+.passport-hide {
+  opacity: 0 !important;
+}
+
+.passport-info-section {
+  background-color: $grey;
+  display: block;
+  height: 100vh;
+  right: 100%;
+  position: fixed;
+  transition: all 1s;
+  top: 0;
+  width: 100%;
+  z-index: 1800;
+  @media screen and (max-width: 1024px) {
+    right: 0;
+    top: calc(100% - 165px);
+  }
+  .col-xxl-3 {
+    @media screen and (min-width: 1400px) {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+  .col-lg-4,
+  .col-12 {
+    margin-bottom: 30px !important;
+  }
+  margin-bottom: 100px;
+  @media screen and (max-width: 1025px) {
+    margin-top: 100px;
+    margin-bottom: 89px;
+  }
+	&__cashback {
+		left: 90%;
+		max-height: 120px;
+		position: absolute;
+		top: 0;
+		transform: translate(-50%, -50%);
+		width: auto;
+		z-index: 10;
+		@media screen and (max-width: 1450px) {
+			max-height: 100px;
+		}
+		@media screen and (max-width: 768px) and (min-width: 700px) {
+			left: 78%;
+		}
+		@media screen and (max-width: 699px) {
+			left: 80%;
+		}
+		@media screen and (max-width: 599px) {
+			left: 85%;
+		}
+		@media screen and (max-width: 499px) {
+			left: 90%;
+			max-width: 80px;
+		}
+	}
+  &__title {
+    @media screen and (max-width: 1025px) {
+      display: none;
+    }
+  }
+  &__title-small {
+    @media screen and (min-width: 1025px) {
+      display: none;
+    }
+  }
+  &__header {
+    height: 140px;
+    @media screen and (max-width: 1025px) {
+      display: none;
+    }
+  }
+  &__over {
+    background-color: $blue-purple;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    transition: all 1s;
+    width: calc(100% - 85px);
+    z-index: 2300;
+    @media screen and (max-width: 1025px) {
+      top: 65px;
+      width: 100%;
+    }
+  }
+  &__lightning {
+    position: absolute;
+    right: -30px;
+    top: -60px;
+    z-index: -1;
+  }
+  &__compass {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+  }
+  &__hojinho {
+    align-items: center;
+    display: flex;
+    height: 140px;
+    justify-content: center;
+    @media screen and (max-width: 1025px) {
+      display: block;
+      height: inherit;
+      position: absolute;
+      top: calc(50% - 42px);
+    }
+    img {
+      height: 54px;
+      width: 33px;
+    }
+  }
+  &__purple {
+    background-color: $blue-purple;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    @media screen and (max-width: 1024px) {
+      display: none !important;
+    }
+  }
+  &__button {
+    background-color: $blue-purple;
+    border: none;
+    height: 51px;
+    margin-top: 40px;
+    position: relative;
+    transition: all 0.3s;
+    width: 51px;
+    @media screen and (max-width: 1024px) {
+      border: 1px solid #505050;
+      box-sizing: border-box;
+      border-radius: 53.8525px;
+      height: 41px;
+      width: 41px;
+    }
+    &::before {
+      background-color: white;
+      content: "";
+      height: 60px;
+      left: 50%;
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      transform: rotate(45deg);
+      transition: all 0.4s;
+      width: 3px;
+      @media screen and (max-width: 1024px) {
+        height: 30px;
+        left: calc(50% - 0.75px);
+        top: 5px;
+        width: 1.5px;
+      }
+    }
+    &::after {
+      background-color: white;
+      content: "";
+      height: 60px;
+      left: 50%;
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      transform: rotate(-45deg);
+      transition: all 0.4s;
+      width: 3px;
+      @media screen and (max-width: 1024px) {
+        height: 30px;
+        left: calc(50% - 0.75px);
+        top: 5px;
+        width: 1.5px;
+      }
+    }
+  }
+  &__small-button {
+    @extend .passport-info-section__button;
+    margin: 0;
+    left: calc(100% - 62px);
+    top: calc(50% - 42px);
+  }
+  &__timer {
+    margin: auto;
+    @media screen and (max-width: 1024px) {
+      display: none !important;
+    }
+    img {
+      height: 36px;
+      margin-bottom: 27px;
+      width: 36px;
+    }
+  }
+  & .ui-text {
+    margin-bottom: 30px;
+  }
+  &__cta {
+    background: #27c124;
+    border-radius: 53.8525px;
+    color: #ffffff;
+    font-family: $font-three;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13.0882px;
+    line-height: 14px;
+    letter-spacing: 0.1em;
+    padding: 15px 24px 12px 19px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    &:hover {
+      color: white;
+      box-shadow: 0px 0px 15px #27c124;
+      transition: all 0.3s;
+    }
+  }
+  &__info {
+    margin-bottom: 42px;
+    margin-top: 30px;
+    li {
+      color: #231f20;
+      font-family: $font-two;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 23px;
+      margin-bottom: 20px;
+      img {
+        margin-right: 21px;
+        margin-top: 3px;
+        max-height: 17px;
+      }
+    }
+    &--strike {
+      color: #a9a9a9 !important;
+      text-decoration: line-through;
+    }
+  }
+}
+
+.first-section {
+  background-color: $grey;
+  &__cover {
+    img {
+      transform: scale(1.1);
+    }
+    @media screen and (max-width: 425px) {
+      min-height: 400px;
+      transform: scale(1.1);
+    }
+    @media screen and (max-width: 320px) {
+      min-height: 300px;
+      transform: scale(1.1);
+    }
+  }
+  &__content {
+    min-height: 800px;
+    @media screen and (max-width: 1025px) {
+      min-height: 0;
+    }
+  }
+  &__title {
+    font-size: 60px;
+    line-height: 54px;
+    margin-bottom: 35px;
+    margin-top: 170px;
+    @media screen and (max-width: 1680px) {
+      margin-top: 140px;
+    }
+    @media screen and (max-width: 1580px) {
+      font-size: 50px;
+      line-height: 55px;
+      margin-top: 20px;
+    }
+    @media screen and (max-width: 1480px) {
+      font-size: 40px;
+      line-height: 45px;
+      margin-bottom: 10px;
+    }
+    @media screen and (max-width: 1025px) {
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+  }
+  &__info {
+    & div > p {
+      color: white;
+      font-family: $font-two;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 23px;
+      line-height: 25px;
+      margin-bottom: 57px;
+      margin-top: 69px;
+      @media screen and (max-width: 1440px) {
+        font-size: 14px;
+        margin-top: 30px;
+      }
+      @media screen and (max-width: 425px) {
+        margin-top: 20px;
+      }
+      @media screen and (max-width: 320px) {
+        font-size: 12px;
+      }
+    }
+    & img {
+      height: 28px;
+      margin-right: 14px;
+      width: 28px;
+    }
+    @media screen and (max-width: 1440px) {
+      & img {
+        align-self: center;
+        display: flex;
+        height: 17px;
+        margin-right: 10px;
+        width: 17px;
+      }
+    }
+  }
+  &__icon {
+    height: 20px;
+    margin-right: 7px;
+    width: 20px;
+  }
+  &__thiago {
+    background: linear-gradient(
+      180deg,
+      rgba(35, 31, 32, 0) 87.57%,
+      #231f20 100%
+    );
+  }
+  &__buy-button {
+    width: 370px;
+    @media screen and (max-width: 1025px) {
+      align-self: center;
+    }
+  }
+  &__item {
+    height: 65px;
+    margin-top: 70px;
+    width: 65px;
+  }
+  p {
+    align-items: center;
+    display: flex;
+    @media screen and (max-width: 1025px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.event-section {
+  background-color: $grey;
+  padding-bottom: 200px;
+  position: relative;
+  @media screen and (max-width: 1025px) {
+    padding-bottom: 60px;
+  }
+  &__image {
+    align-self: center;
+    background: linear-gradient(
+      180deg,
+      rgba(35, 31, 32, 0) 63.94%,
+      #231f20 100%
+    );
+    border-radius: 20px;
+    display: flex;
+    height: 100%;
+    @media screen and (max-width: 1200px) and (min-width: 1024px) {
+      height: 70%;
+    }
+    @media screen and (max-width: 1024px) {
+      max-height: 470px;
+      position: relative;
+    }
+    @media screen and (max-width: 992px) and (min-width: 769px) {
+      left: 50%;
+      position: relative;
+      transform: translate(-50%, 0);
+    }
+    @media screen and (max-width: 768px) and (min-width: 425px) {
+      left: 15%;
+      min-width: 60%;
+      position: relative;
+    }
+  }
+  &__hojinho {
+    min-height: 70%;
+    position: absolute;
+    right: 60px;
+    top: 50px;
+    z-index: 10;
+    @media screen and (max-width: 1440px) {
+      height: 200px;
+      min-height: 200px;
+      right: 5%;
+      top: 10%;
+    }
+    @media screen and (max-width: 425px) {
+      height: 150px;
+      min-height: 150px;
+      right: 70%;
+      top: 0;
+    }
+  }
+  &__unimaginable {
+    margin-bottom: 70px;
+    max-height: 30px;
+    max-width: 50%;
+    @media screen and (max-width: 1480px) {
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: 1025px) {
+      margin-bottom: 20px;
+    }
+  }
+  &__emerald {
+    bottom: -100px;
+    left: 300px;
+    position: absolute;
+    @media screen and (max-width: 1024px) {
+      bottom: -60px;
+      left: 150px;
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  &__molecule {
+    animation: molecule 6s infinite;
+    position: absolute;
+    right: 0;
+    top: -30px;
+    @media screen and (max-width: 1440px) {
+      height: 150px;
+    }
+    @media screen and (max-width: 768px) {
+      top: -150px;
+    }
+  }
+  p {
+    margin-bottom: 30px;
+  }
+  span {
+    font-family: $font-four;
+  }
+  & h1 {
+    @media screen and (max-width: 1480px) {
+      margin-bottom: 10px;
+      margin-top: 20px;
+      font-size: 40px;
+      line-height: 45px;
+    }
+    @media screen and (max-width: 1025px) {
+      font-size: 25px;
+      line-height: 29px;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+  }
+}
+
+.speakers-section {
+  background-color: $grey;
+  position: relative;
+  &__text {
+    h1 {
+      margin-bottom: 30px; //filter: invert(19%) sepia(52%) saturate(14777%) hue-rotate(350deg) brightness(98%) contrast(95%);
+    }
+    p {
+      @media screen and (min-width: 1025px) {
+        padding-right: 80px;
+      }
+    }
+  }
+  &__interal-button {
+    align-items: center;
+    background-color: $green-yellow;
+    border-radius: 16px;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: $font-two;
+    font-size: 1.5rem;
+    font-weight: 600;
+    height: 100%;
+    justify-content: center;
+    line-height: 2rem;
+    outline: none;
+    padding: 0 20px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    width: 100%;
+    & > div {
+      align-items: center;
+      background-color: $blue-purple;
+      border-radius: 50%;
+      color: $green-yellow;
+      display: flex;
+      font-size: 2rem;
+      justify-content: center;
+      margin-top: 1rem;
+      height: 50px;
+      width: 50px;
+    }
+    &:hover > div {
+      margin-top: 0.7rem;
+      transition: all 0.3s;
+    }
+  }
+  &__button {
+    background-color: $grey;
+    font-family: $font-three;
+    width: 290px;
+    @media screen and (max-width: 1440px) {
+      margin-top: 24px;
+    }
+    @media screen and (max-width: 1370px) and (min-width: 1024px) {
+      padding: 15px 10px 12px 15px;
+      width: 270px;
+    }
+    @media screen and (max-width: 768px) {
+      padding: 15px 17px 12px 17px;
+      z-index: 20;
+    }
+    &:hover {
+      background-color: $green-yellow;
+      box-shadow: none;
+      color: $grey;
+      outline: none;
+      transition: all 0.3s;
+      img {
+        filter: brightness(0%) invert(0);
+        transition: all 0.3s;
+      }
+    }
+    img {
+      filter: invert(89%) sepia(93%) saturate(554%) hue-rotate(10deg)
+        brightness(1101%) contrast(91%);
+      margin-right: 10px;
+    }
+  }
+  &__buy-button {
+    margin-top: 110px;
+  }
+  &__item-wrapper {
+    position: absolute;
+    right: 300px;
+    top: -220px;
+    @media screen and (max-width: 1024px) {
+      right: 50px;
+      top: -100px;
+    }
+    @media screen and (max-width: 768px) {
+      img {
+        height: 118px;
+      }
+    }
+    @media screen and (max-width: 425px) {
+      right: 20px;
+      top: -50px;
+    }
+  }
+  .VueCarousel-navigation {
+    & button:last-child {
+      right: 100px !important;
+      z-index: 20;
+    }
+  }
+  @media screen and (max-width: 1025px) {
+    &__gradient {
+      display: none;
+    }
+    &__text {
+      margin-bottom: 40px;
+    }
+    .VueCarousel-navigation {
+      height: 60px;
+      margin: 30px 0;
+      width: 200px;
+      & button:first-child {
+        left: 68px;
+        position: relative;
+      }
+      & button:last-child {
+        right: 20px !important;
+        position: relative;
+        z-index: 50;
+        @media screen and (max-width: 1024px) {
+          right: 40px;
+        }
+      }
+    }
+  }
+}
+
+.testimonies-section {
+  background-color: $grey;
+  position: relative;
+  .VueCarousel-navigation {
+    button:last-child {
+      right: 0 !important;
+    }
+  }
+  @media screen and (max-width: 1025px) and (min-width: 768px) {
+    .VueCarousel-navigation {
+      button:first-child {
+        left: 35px !important;
+        top: 25% !important;
+      }
+      button:last-child {
+        right: 38px !important;
+        top: 25% !important;
+      }
+    }
+  }
+  @media screen and (max-width: 769px) {
+    .VueCarousel-navigation {
+      button {
+        top: 25% !important;
+      }
+    }
+  }
+  &__guy {
+    @media screen and (max-width: 1024px) and (min-width: 768px) {
+      max-width: 60%;
+      margin: 0 auto;
+    }
+  }
+  &__carousel {
+    margin-bottom: 50px;
+  }
+  &__molecule {
+    animation: molecule 7s infinite;
+    right: 50px;
+    position: absolute;
+    top: -30px;
+    @media screen and (max-width: 1024px) {
+      top: -150px;
+    }
+    @media screen and (max-width: 425px) {
+      right: -80px;
+    }
+  }
+  &__emerald {
+    right: -10px;
+    position: absolute;
+    top: 45%;
+  }
+  &__compass {
+    bottom: -40px;
+    position: absolute;
+    right: 50px;
+    z-index: 20;
+    @media screen and (max-width: 425px) {
+      bottom: -20px;
+      height: 40px;
+    }
+  }
+}
+
+.previous-editions {
+  background-color: $white;
+  position: relative;
+  h1 {
+    margin-bottom: 27px;
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 15px;
+    }
+  }
+  &__link {
+    background-color: white;
+    border: 2px solid #ededed;
+    color: $grey;
+    margin-top: 44px;
+    transition: all 0.3s;
+    width: 280px;
+    @media screen and (max-width: 1024px) {
+      margin-top: 0;
+      width: 300px;
+    }
+    img {
+      filter: invert(19%) sepia(52%) saturate(14777%) hue-rotate(350deg)
+        brightness(98%) contrast(95%);
+      margin-right: 30px;
+      transition: all 0.3s;
+      @media screen and (max-width: 768px) {
+        margin-left: -10%;
+      }
+    }
+    &:hover {
+      background-color: $red-pink;
+      box-shadow: none;
+      color: white;
+      transition: all 0.3s;
+      img {
+        filter: none;
+        transition: all 0.3s;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    & > p {
+      margin-right: 100px;
+      @media screen and (max-width: 1300px) and (min-width: 1024px) {
+        margin-right: 60px;
+      }
+      @media screen and (max-width: 1024px) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+  @media screen and (max-width: 1025px) {
+    .VueCarousel-navigation {
+      height: 60px;
+      margin: 30px 0;
+      width: 200px;
+      & button:nth-child(1) {
+        left: 68px;
+        position: relative;
+      }
+      & button:nth-child(2) {
+        right: 80px;
+        position: relative;
+        z-index: 50;
+        @media screen and (max-width: 1024px) {
+          right: 40px;
+        }
+      }
+    }
+  }
+  &__gear {
+    bottom: -80px;
+    position: absolute;
+    right: 150px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  &__saphire {
+    bottom: 100px;
+    position: absolute;
+    right: -20px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.brands-section {
+  background-color: $white;
+  padding-top: 58px;
+  @media screen and (max-width: 1024px) {
+    .container-fluid {
+      padding: 0 !important;
+    }
+  }
+  &__container {
+    background: linear-gradient(0deg, #ffffff, #ffffff), #f8f8f8;
+    background-color: white;
+    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    height: 260px;
+    padding: 0 25px;
+    width: 100%;
+    @media screen and (max-width: 768px) {
+      border-radius: 0;
+      height: 130px;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100%;
+    }
+  }
+  &__small-title {
+    color: #55535a;
+    font-family: $font-four;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 19px;
+    text-align: center;
+  }
+  &__brands-l {
+    background: linear-gradient(
+      90deg,
+      #ffffff 3.77%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    width: 20%;
+  }
+  &__brands-r {
+    background: linear-gradient(
+      90deg,
+      #ffffff 3.77%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    display: block;
+    height: 100%;
+    right: 0;
+    position: absolute;
+    top: 0;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: 20;
+    width: 20%;
+  }
+  @media screen and (max-width: 768px) {
+    .ui-container--bottom {
+      padding: 0;
+    }
+  }
+  @media screen and (max-width: 1440px) and (min-width: 768px) {
+    .ui-section-title--blue {
+      font-size: 30px;
+    }
+  }
+}
+
+.passport-section {
+  background-color: $white;
+  position: relative;
+  .col-12,
+  .col-lg-4 {
+    margin-bottom: 33px !important;
+  }
+	&__cashback {
+		left: 90%;
+		max-height: 120px;
+		position: absolute;
+		top: 0;
+		transform: translate(-50%, -50%);
+		width: auto;
+		z-index: 10;
+		@media screen and (max-width: 1450px) {
+			max-height: 90px;
+		}
+		@media screen and (max-width: 768px) and (min-width: 700px) {
+			left: 78%;
+		}
+		@media screen and (max-width: 699px) {
+			left: 80%;
+		}
+		@media screen and (max-width: 599px) {
+			left: 85%;
+		}
+		@media screen and (max-width: 499px) {
+			left: 90%;
+			max-width: 80px;
+		}
+	}
+  &__soldoff {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    max-height: 50%;
+    position: absolute;
+    right: 0;
+    top: 20%;
+    z-index: 10;
+    @media screen and (max-width: 1700px) {
+      bottom: 40%;
+    }
+    @media screen and (max-width: 1500px) {
+      top: 20%;
+    }
+    @media screen and (max-width: 1400px) {
+      bottom: -20%;
+      min-height: 70%;
+      top: 5%;
+    }
+    @media screen and (min-width: 1300px) and (max-width: 1400px) {
+      top: 0;
+    }
+    @media screen and (max-width: 992px) {
+      bottom: -20%;
+      top: 5%;
+    }
+    @media screen and (max-width: 320px) {
+      bottom: 40%;
+      left: 0;
+      right: 0;
+      top: 5%;
+    }
+    @media screen and (max-width: 320px) {
+      min-height: 0;
+    }
+  }
+  &__soldoff2 {
+    @extend .passport-section__soldoff;
+    bottom: 0;
+    min-height: 70%;
+    top: 5%;
+    @media screen and (max-width: 1700px) {
+      bottom: 40%;
+    }
+    @media screen and (max-width: 1500px) {
+      top: 20%;
+    }
+    @media screen and (max-width: 1400px) {
+      bottom: 20%;
+      left: 0;
+      min-height: 50%;
+      right: 0;
+      top: 20%;
+    }
+    @media screen and (max-width: 1200px) {
+      min-height: 100%;
+    }
+    @media screen and (max-width: 992px) {
+      bottom: -20%;
+      top: 5%;
+    }
+    @media screen and (min-width: 880px) and (max-width: 1024px) {
+      min-height: 90%;
+      top: 0;
+    }
+    @media screen and (max-width: 320px) {
+      bottom: 40%;
+      left: 0;
+      min-height: 60%;
+      right: 0;
+      top: 5%;
+    }
+  }
+  &__card {
+    background: linear-gradient(0deg, #ffffff, #ffffff), #f8f8f8;
+    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    min-width: 100%;
+		overflow: hidden;
+    padding: 50px 30px;
+    position: relative;
+    margin-bottom: 33px;
+    @media screen and (max-width: 1440px) {
+      padding: 30px 22px;
+    }
+    @media screen and (min-width: 425px) and (max-width: 768px) {
+      max-width: 400px !important;
+      min-width: 400px;
+    }
+  }
+  &__title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 37.7556px;
+    line-height: 38px;
+    min-height: 76px;
+    text-align: center;
+    @media screen and (max-width: 1024px) {
+      font-size: 29px;
+      line-height: 29px;
+      min-height: 0;
+    }
+    span {
+      font-weight: 800;
+    }
+  }
+  &__lote {
+    background: #e8e8e8;
+    border-radius: 50px;
+    color: #5c5c5c;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19.0126px;
+    line-height: 25px;
+    margin: 13px auto;
+    padding: 0 15px;
+    text-align: center;
+    width: 150px;
+    @media screen and (max-width: 1024px) {
+      font-size: 12px;
+      line-height: 15px;
+      width: 100px;
+    }
+    &--soldoff {
+      @extend .passport-section__lote;
+      background-color: #e90000;
+      color: white;
+    }
+  }
+  &__lead {
+    color: #231f20;
+    font-family: $font-two;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    margin: 30px 0;
+    text-align: center;
+    @media screen and (max-width: 1024px) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  &__details {
+    background-color: $white;
+    border: 0;
+    color: #231f20;
+    font-family: $font-two;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    margin: 30px auto 60px;
+    outline: none;
+    text-align: center;
+    text-decoration: underline;
+    transition: all 0.3s;
+    @media screen and (max-width: 1024px) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+    &:hover {
+      color: $red-pink;
+      transition: all 0.3s;
+    }
+    img {
+      margin-right: 10px;
+    }
+  }
+  &__value {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 65.5755px;
+    line-height: 66px;
+    position: relative;
+    text-align: center;
+    @media screen and (max-width: 1551px) and (min-width: 1440px) {
+      font-size: 43px;
+    }
+    @media screen and (max-width: 1439px) {
+      font-size: 45px;
+    }
+    @media screen and (max-width: 1024px) {
+      font-size: 50px;
+      line-height: 50px;
+    }
+    &::before {
+      color: #231f20;
+      content: "R$";
+      font-weight: 800;
+      font-size: 24.1594px;
+      left: 0;
+      line-height: 100%;
+      position: relative;
+      bottom: 26px;
+      @media screen and (max-width: 1440px) {
+        bottom: 15px;
+      }
+      @media screen and (max-width: 1024px) {
+        bottom: 18px;
+      }
+    }
+    @media screen and (max-width: 1024px) {
+      bottom: 15px;
+    }
+  }
+  &__fees {
+    color: #231f20;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18.1594px;
+    line-height: 18px;
+    margin-bottom: 40px;
+    margin-top: 15px;
+    text-align: center;
+    span {
+      font-weight: 700;
+    }
+  }
+  &__buy-button {
+    background: #d6f42c;
+    border: 0;
+    border-radius: 66.5236px;
+    color: #231f20;
+    display: flex;
+    font-family: $font-three;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin: 0 auto;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    @media screen and (max-width: 1439px) {
+      font-size: 15px;
+      line-height: 18px;
+      padding: 16px 10px;
+    }
+    @media screen and (max-width: 1734px) and (min-width: 1440px) {
+      padding: 10px 10px;
+    }
+    &--no-click {
+      @extend .passport-section__buy-button;
+      cursor: not-allowed;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+    &:hover {
+      color: black;
+      box-shadow: 0px 0px 15px $green-yellow;
+      transition: all 0.3s;
+    }
+    &--red {
+      @extend .passport-section__buy-button;
+      background-color: $red-pink;
+      color: white;
+      &:hover {
+        box-shadow: 0px 0px 15px $red-pink;
+      }
+      &--no-click {
+        @extend .passport-section__buy-button--red;
+        cursor: not-allowed;
+        &:hover {
+          box-shadow: none;
+          color: white;
+        }
+      }
+    }
+    &--blue {
+      @extend .passport-section__buy-button;
+      background-color: $blue-purple;
+      color: white;
+      &:hover {
+        box-shadow: 0px 0px 15px $blue-purple;
+      }
+      &--no-click {
+        @extend .passport-section__buy-button--blue;
+        cursor: not-allowed;
+        &:hover {
+          box-shadow: none;
+          color: white;
+        }
+      }
+    }
+    &--platinum {
+      @extend .passport-section__buy-button;
+      background-color: grey;
+      color: white;
+      &:hover {
+        box-shadow: 0px 0px 15px grey;
+      }
+      &--no-click {
+        @extend .passport-section__buy-button--platinum;
+        cursor: not-allowed;
+        &:hover {
+          box-shadow: none;
+          color: white;
+        }
+      }
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.7;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+  &__motivation {
+    color: #696969;
+    font-family: $font-three;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19.0126px;
+    line-height: 21px;
+    margin-top: 30px;
+    text-align: center;
+    @media screen and (max-width: 1440px) {
+      padding: 0;
+    }
+    @media screen and (max-width: 1024px) {
+      font-family: 12px;
+      font-size: 12px;
+    }
+    span {
+      font-family: $font-two;
+    }
+  }
+  &__header {
+    margin-bottom: 90px;
+    p {
+      margin-top: 10px;
+    }
+  }
+  &__compass {
+    bottom: 25%;
+    left: 70px;
+    position: absolute;
+  }
+  &__item-wrapper {
+    position: absolute;
+    right: 55%;
+    top: 220px;
+    @media screen and (max-width: 1024px) {
+      right: 20px;
+      top: 0;
+    }
+    @media screen and (max-width: 768px) {
+      top: 100px;
+      right: -30px;
+      img {
+        height: 118px;
+      }
+    }
+    @media screen and (max-width: 425px) {
+      display: none;
+    }
+  }
+  &__ruby {
+    bottom: 60px;
+    height: 40px;
+    left: -10px;
+    position: absolute;
+  }
+}
+
+.newsletter {
+  background-color: $white;
+  &__row {
+    background: linear-gradient(0deg, #f41b50, #f41b50), #f8f8f8;
+    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    padding: 40px 41px;
+    @media screen and (max-width: 1500px) and (min-width: 1200px) {
+      padding: 20px 20px;
+    }
+    @media screen and (max-width: 425px) {
+      padding: 20px 20px;
+    }
+  }
+  h1 {
+    margin-bottom: 10px;
+    @media screen and (max-width: 1500px) and (min-width: 1200px) {
+      font-size: 30px !important;
+    }
+  }
+  button {
+    @media screen and (max-width: 1500px) and (min-width: 1024px) {
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: 0px;
+    }
+  }
+}
+
+.sponsors-section {
+  background-color: $white;
+  padding-bottom: 190px;
+  position: relative;
+  @media screen and (max-width: 1440px) {
+    padding-bottom: 60px;
+  }
+  &__header {
+    margin-bottom: 90px;
+    @media screen and (max-width: 1440px) {
+      margin-bottom: 20px;
+    }
+  }
+  &__title {
+    color: #585455;
+    font-family: $font-three;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 21.7556px;
+    line-height: 22px;
+    margin-bottom: 15px;
+    margin-top: 75px;
+    text-align: center;
+  }
+  &__img-wrapper {
+    background-color: $white;
+    border: 1px solid #e0e0e0;
+    height: 148px;
+    width: 322px;
+    &:hover {
+      img {
+        mix-blend-mode: initial;
+        transition: all 0.3s;
+      }
+    }
+  }
+  img {
+    mix-blend-mode: luminosity;
+    transition: all 0.3s;
+  }
+  &__molecule {
+    animation: molecule 6s infinite linear;
+    left: 200px;
+    mix-blend-mode: normal !important;
+    position: absolute;
+    top: 200px;
+    @media screen and (max-width: 1440px) {
+      left: 50px;
+      top: 400px;
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+  &__emerald {
+    right: 0;
+    mix-blend-mode: normal !important;
+    position: absolute;
+    top: 200px;
+  }
+  &__lightning {
+    mix-blend-mode: normal !important;
+    position: absolute;
+    right: 100px;
+    top: 400px;
+    @media screen and (max-width: 1440px) {
+      top: 500px;
+    }
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.green-section {
+  background: linear-gradient(to top, #231f20 33%, white 33%);
+  @media screen and (max-width: 425px) {
+    .front-content {
+      padding: 0;
+    }
+  }
+  &__container {
+    background-color: $green-yellow;
+    border-radius: 30.47px;
+    padding: 89px 89px 0 89px;
+    overflow: hidden;
+    @media screen and (max-width: 1024px) and (min-width: 426px) {
+      padding: 60px 60px 0 60px;
+    }
+    @media screen and (max-width: 425px) {
+      padding: 38px 31px 0 31px;
+    }
+  }
+  &__girl {
+    img {
+      bottom: 0;
+      max-height: initial;
+      position: absolute;
+      @media screen and (max-width: 1024px) {
+        position: relative;
+      }
+      @media screen and (max-width: 425px) {
+        bottom: 15px;
+        max-height: 300px;
+        transform: scale(1.1);
+      }
+      @media screen and (max-width: 320px) {
+        bottom: 11.5px;
+      }
+    }
+  }
+  &__items-crown {
+    bottom: 0 !important;
+    position: absolute;
+    z-index: 10;
+    @media screen and (max-width: 1440px) {
+      bottom: 40px;
+      height: 160px;
+    }
+  }
+  &__modal {
+    min-height: 668px;
+    overflow: hidden;
+    .modal-content {
+      background-color: $grey;
+      border-radius: 30px;
+      min-height: 668px;
+      padding: 46px 48px;
+      @media screen and (max-width: 425px) {
+        padding: 10px 11px;
+      }
+    }
+    h1 {
+      margin-bottom: 31px;
+    }
+    button {
+      box-shadow: 0px 4px 0px #96ac17;
+      font-size: 15px;
+      margin-top: 34px;
+    }
+    img {
+      bottom: -80px;
+      height: 264px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      position: absolute;
+    }
+    &-back {
+      display: none;
+      &-1 {
+        color: #ffffff;
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24.01px;
+        line-height: 124%;
+        margin-bottom: 45px;
+      }
+      &-2 {
+        color: #ffffff;
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 24px;
+      }
+    }
+    &-error {
+      display: none;
+      &-button {
+        left: 0;
+        position: absolute;
+        transform: translate(50%, 0);
+      }
+    }
+    &-input {
+      align-items: center;
+      background-color: $grey;
+      border: 2px solid #343434;
+      box-sizing: border-box;
+      border-radius: 8px;
+      color: #b5b5b5;
+      display: flex;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      margin-bottom: 14px;
+      outline: none;
+      padding: 17px;
+      width: 100%;
+    }
+    &-close {
+      box-shadow: none !important;
+      height: 28px;
+      position: absolute;
+      right: 15px;
+      top: -40px;
+      width: 28px;
+      @media screen and (max-width: 425px) {
+        top: -20px;
+      }
+      &::before {
+        background-color: white;
+        content: "";
+        height: 40px;
+        left: 50%;
+        margin: 0 auto;
+        position: absolute;
+        top: -5px;
+        transform: rotate(45deg);
+        transition: all 0.4s;
+        width: 3px;
+        @media screen and (max-width: 1024px) {
+          height: 20px;
+          left: calc(50% - 0.75px);
+          top: 0px;
+          width: 1.5px;
+        }
+      }
+      &::after {
+        background-color: white;
+        content: "";
+        height: 40px;
+        left: 50%;
+        margin: 0 auto;
+        position: absolute;
+        top: -5px;
+        transform: rotate(-45deg);
+        transition: all 0.4s;
+        width: 3px;
+        @media screen and (max-width: 1024px) {
+          height: 20px;
+          left: calc(50% - 0.75px);
+          top: 0px;
+          width: 1.5px;
+        }
+      }
+    }
+    &-check {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 14px;
+      input {
+        all: background;
+        background-color: $grey;
+        border: 2px solid #343434;
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 28px;
+        margin-bottom: 0;
+        margin-right: 10px;
+        width: 28px;
+        input:checked {
+          background-color: $green-yellow;
+        }
+      }
+      label,
+      a {
+        color: #ffffff;
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 120%;
+      }
+      a {
+        text-decoration: underline !important;
+      }
+      a:hover {
+        color: $blue-purple;
+      }
+    }
+    &-text {
+      color: #949494;
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 120%;
+    }
+  }
+  h1 {
+    margin-bottom: 37px;
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 20px;
+    }
+  }
+  button {
+    margin-bottom: 111px;
+    margin-top: 72px;
+    text-align: center;
+    text-transform: uppercase;
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 70px;
+      margin-top: 50px;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  p {
+    font-family: $font-one;
+  }
+  strong {
+    font-family: $font-two;
+  }
+  &__form-button {
+    width: 100%;
+  }
+}
+
+#sponsorModal {
+  z-index: 5000;
+}
+
+#passports-home {
+	scroll-margin-top: -80vh;
+	@media screen and (max-width: 992px) {
+		scroll-margin-top: -60vh;
+	}
+	@media screen and (max-width: 768px) {
+		scroll-margin-top: -40vh;
+	}
+	@media screen and (max-width: 565px) {
+		scroll-margin-top: -10vh;
+	}
+}
+
+.cashback-popup {
+	& .modal-body {
+		padding: 0;
+	}
+	& .modal-content {
+		background-color: transparent;
+	}
+	& button {
+		right: -30px;
+		position: absolute;
+		top: 0;
+	}
+	& span {
+		color: white;
+		font-size: 50px;
+	}
+}

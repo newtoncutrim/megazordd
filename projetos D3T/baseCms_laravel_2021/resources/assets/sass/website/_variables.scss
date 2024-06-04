@@ -1,0 +1,22 @@
+//Colours
+$description: #F1F1F1;
+$grey: rgb(35, 31, 32);
+$red-pink: rgb(244, 27, 80);
+$blue-purple: rgb(111, 57, 255);
+$green-yellow: rgb(214, 244, 44);
+$grey-white: #FBFBFB;
+$white: white;
+
+//Fonts
+$font-one: 'PrivaOnePro', 'Titillium Web';
+$font-two: 'PrivaTwoPro', 'Titillium Web';
+$font-three: 'PrivaThreePro', 'Titillium Web';
+$font-four: 'PrivaFourPro', 'Titillium Web';
+
+:root{
+  --default-padding: 60px 0px 0px 0px;
+  
+  @media screen and (max-width: 768px){
+    --default-padding: 30px 0px 0px 0px;
+  }
+}

@@ -1,0 +1,298 @@
+.ui-container {
+  padding-bottom: 100px;
+  padding-top: 100px;
+  @media screen and (max-width: 1440px) {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+}
+.ui-container--top {
+  padding-top: 100px;
+  @media screen and (max-width: 1440px) {
+    padding-top: 50px;
+  }
+}
+.ui-container--bottom {
+  padding-bottom: 100px;
+  @media screen and (max-width: 1440px) {
+    padding-bottom: 50px;
+  }
+}
+
+.ui-section-title {
+  color: white;
+  font-family: $font-four;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 45.76px;
+  &--red {
+    @extend .ui-section-title;
+    color: $red-pink;
+  }
+  &--blue {
+    @extend .ui-section-title;
+    color: $blue-purple;
+  }
+  &--black {
+    @extend .ui-section-title;
+    color: black;
+  }
+  &--green {
+    @extend .ui-section-title;
+    color: $green-yellow;
+  }
+  @media screen and (max-width: 1024px) {
+    font-size: 41px;
+  }
+  &--big {
+    @extend .ui-section-title;
+    font-size: 70px;
+    line-height: 74px;
+    @media screen and (max-width: 1025px) {
+      font-size: 32px;
+      line-height: 29px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.ui-text {
+  color: white;
+  font-family: $font-two;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 25px;
+  @media screen and (max-width: 1025px) {
+    font-size: 17px;
+    line-height: 22px;
+  }
+  &--black {
+    @extend .ui-text;
+    color: black;
+		& i {
+			color: #28a745;
+		}
+  }
+  &--small {
+    @extend .ui-text--black;
+    font-family: $font-one;
+  }
+  p,
+  strong {
+    display: block !important;
+    font-family: $font-two;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+  }
+  strong {
+    display: inline !important;
+    font-weight: bold !important;
+  }
+}
+
+.ui-button {
+  border: 1px solid #505050;
+  border-radius: 53.8525px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font-three;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.6px;
+  line-height: 14.4px;
+  padding: 15px 21px 12px 21px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  &:hover {
+    color: white;
+    box-shadow: 0px 0px 15px white;
+    transition: all 0.3s;
+  }
+	&--not-button {
+		@extend .ui-button;
+		background-color: $blue-purple;
+    border: 0;
+		color: white;
+    &:hover {
+      box-shadow: none;
+			cursor: default;
+    }
+	}
+	&--grey {
+		@extend .ui-button;
+		background-color: #b0b4b7;
+    border: 0;
+		color: white;
+    &:hover {
+      box-shadow: 0px 0px 15px #b0b4b7;
+    }
+	}
+	&--not-button--red {
+		@extend .ui-button;
+		background-color: $red-pink;
+    border: 0;
+		color: white;
+    &:hover {
+      box-shadow: none;
+			cursor: default;
+    }
+	}
+  &--red {
+    @extend .ui-button;
+    background-color: $red-pink;
+    border: 0;
+    &:hover {
+      color: white;
+      box-shadow: 0px 0px 15px $red-pink;
+      transition: all 0.3s;
+    }
+  }
+  &--green {
+    @extend .ui-button;
+    background-color: $green-yellow;
+    border: 0;
+    color: black;
+    &:hover {
+      color: black;
+      box-shadow: 0px 0px 15px $green-yellow;
+      transition: all 0.3s;
+    }
+  }
+  &--blue {
+    @extend .ui-button;
+    background-color: $blue-purple;
+    border: 0;
+    color: black;
+    &:hover {
+      color: black;
+      box-shadow: 0px 0px 15px $blue-purple;
+      transition: all 0.3s;
+    }
+  }
+  &--round {
+    @extend .ui-button;
+    border: 1.63465px solid #ffffff;
+    font-size: 20px;
+    padding: 8px;
+  }
+  &--big {
+    @extend .ui-button--green;
+    font-size: 24px;
+    line-height: 26px;
+    letter-spacing: 0.1em;
+    padding: 21px 26px 16px 24px;
+    @media screen and (max-width: 1024px) {
+      font-size: 17px;
+      line-height: 19px;
+      padding: 16px 21px 11px 20px;
+    }
+  }
+  &--big-red {
+    @extend .ui-button--big;
+    background-color: $red-pink;
+    color: white;
+    &:hover {
+      color: white;
+      box-shadow: 0px 0px 15px $red-pink;
+    }
+  }
+}
+
+.ui-link {
+  color: white;
+  font-family: $font-three;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17.0126px;
+  line-height: 19px;
+  letter-spacing: 0.1em;
+  &:hover {
+    color: $red-pink;
+  }
+}
+
+.ui-image--contain {
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ui-image--cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ui-form {
+	& label {
+		font-family: $font-two;
+	}
+  & input,
+  & select {
+    border: 1px solid #e8e7e7;
+    border-radius: 8px;
+    color: #231f20;
+    font-family: $font-one;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19.0126px;
+    line-height: 130%;
+    outline: none;
+    padding: 10px;
+  }
+}
+
+.ui-wronged {
+  position: relative;
+  & input {
+    border: 1px solid #e43835;
+  }
+  & label {
+    color: #e43835;
+  }
+  &::after {
+    color: #e43835;
+    content: attr(data-wronged);
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    top: 100%;
+  }
+}
+
+.ui-correct {
+  position: relative;
+  & input {
+    border: 1px solid hsl(100, 76%, 55%);
+  }
+  & label {
+    color: hsl(100, 76%, 55%);
+  }
+  &::after {
+    color: hsl(100, 76%, 55%);
+    content: attr(data-wronged);
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    top: 100%;
+  }
+}
+
+.ui-corrmsgect {
+  position: relative;
+  &::after {
+    content: attr(data-wronged);
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    top: 100%;
+  }
+}

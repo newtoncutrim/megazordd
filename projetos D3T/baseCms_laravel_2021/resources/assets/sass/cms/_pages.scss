@@ -1,0 +1,110 @@
+.fundo {
+    background-color: #231f20 !important;
+}
+.fundo_cms {
+    background-color: $odoisgo-color !important;
+}
+
+.main {
+    &-sidebar,
+    &-header {
+        background-color: rgba(35, 31, 32, 1) !important;
+        li {
+            color: #fff;
+            transition: 0.3s ease all;
+            a {
+                color: #fff;
+            }
+            &:hover {
+                background: rgb(67, 61, 63);
+                transition: 0.3s ease all;
+            }
+        }
+        .navbar {
+            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.45);
+            .logo {
+                @media (max-width: 768px) {
+                    max-width: 170px;
+                }
+            }
+        }
+    }
+    &-sidebar {
+        padding-top: 50px !important;
+    }
+}
+.sidebar {
+    box-shadow: 2px -3px 5px 0px rgba(0, 0, 0, 0.45);
+    @media (max-width: 768px) {
+        box-shadow: 1px 0px 3px 0px rgba(0, 0, 0, 0.45);
+    }
+    &-toggle {
+        color: #fff;
+        transition: 0.3s ease all;
+        &:hover {
+            background: rgba(67, 61, 63, 0.3);
+            transition: 0.3s ease all;
+        }
+        &:active {
+            color: #fff;
+        }
+    }
+    &-menu {
+        .active {
+            background: rgb(67, 61, 63);
+            border-right: 3px solid #fff;
+            font-weight: 600;
+            a {
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+        .treeview.menu-open {
+            background: rgba(67, 61, 63, 0.3);
+        }
+        .treeview.active {
+            border: initial;
+        }
+        .treeview-menu {
+            padding-left: 0px;
+            background: rgba(35, 31, 32, 0.7);
+            li {
+                padding-left: 5px;
+            }
+        }
+    }
+}
+.fixed .content-wrapper,
+.fixed .right-side {
+    background-color: rgba(236, 240, 245, 0.93);
+    margin-top: 50px;
+    padding-top: 0px;
+    min-height: calc(100vh - 50px) !important;
+}
+.user-menu {
+    .dropdown-toggle {
+        display: block;
+        padding: 14px;
+        transition: 0.3s ease all;
+        &:hover,
+        &:active,
+        &:focus {
+            background: rgb(67, 61, 63);
+            color: #fff;
+            transition: 0.3s ease all;
+        }
+    }
+}
+.dropdown-menu > li > a {
+    color: #777 !important;
+}
+.main-footer {
+    background: rgba(255, 255, 255, 0.93);
+}
+.help-block {
+    color: #8a8181;
+    display: block;
+}
+
+

@@ -1,0 +1,324 @@
+.payment {
+  align-items: center;
+  border-radius: 18px;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  margin-top: 160px;
+  padding-top: 150px;
+  width: 80%;
+  &--no-gutters {
+    @extend .payment;
+    font-family: $font-two;
+    font-size: 1.3rem;
+    margin-top: 0;
+    padding: 20px;
+    & label {
+      left: 10%;
+    }
+    & > strong {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    & ul {
+      list-style: disc;
+      padding: 40px;
+    }
+    & ul li {
+      margin-bottom: 15px;
+    }
+    & form {
+      width: 300px;
+      & input,
+      & div,
+      & button {
+        width: 100% !important;
+      }
+      & button {
+        transition: all 0.3s;
+      }
+      & button[disabled] {
+        cursor: not-allowed;
+        opacity: 0.7;
+        transition: all 0.3s;
+        &:hover {
+          box-shadow: none;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+      margin-top: 0 !important;
+      & > strong {
+        font-size: 1rem;
+      }
+      & ul {
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+      & ul li {
+        margin-bottom: 9px;
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    margin-top: 110px;
+    width: 100%;
+  }
+  & .row {
+    width: 80%;
+    @media screen and (max-width: 992px) {
+      width: 100%;
+    }
+  }
+  &__card {
+    background-color: #1d1d1b;
+    border-radius: 18px;
+    box-shadow: 0 20px 30px 0 rgba(90, 116, 148, 0.4);
+    height: 270px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    padding: 25px 15px;
+    position: absolute;
+    top: 140px;
+    transform: translate(0, -50%);
+    width: 430px;
+    & > div:nth-child(1) {
+      background-color: black;
+      inset: 0;
+      opacity: 0.3;
+      position: absolute;
+      z-index: -1;
+    }
+    @media screen and (max-width: 992px) {
+      height: 208px;
+      top: 110px;
+      width: 330px;
+      & img {
+        height: 30px;
+        width: 40px;
+      }
+    }
+    @media screen and (max-width: 380px) {
+      height: 189px;
+      width: 300px;
+      & img {
+        height: 40px;
+        width: 50px;
+      }
+    }
+  }
+  &__input {
+    text-align: end;
+    width: 25%;
+    @media screen and (max-width: 992px) {
+      width: 30%;
+    }
+    @media screen and (max-width: 380px) {
+      width: 40%;
+    }
+    & input {
+      text-align: end;
+      width: 100%;
+    }
+  }
+  & > div:nth-child(3) {
+    width: 70%;
+  }
+  &__card-input {
+    & input {
+      background-color: transparent;
+      border: 0;
+      color: white;
+      font-family: $font-two;
+      font-size: 1.2rem;
+      height: 40px;
+      text-shadow: 7px 6px 10px rgb(14 42 90 / 80%);
+      text-transform: uppercase;
+      width: 100%;
+      @media screen and (max-width: 992px) {
+        font-size: 1rem;
+      }
+    }
+    & input::placeholder {
+      color: white;
+    }
+    & span {
+      color: rgb(220, 220, 220);
+      font-size: 0.8rem;
+      @media screen and (max-width: 992px) {
+        font-size: 0.7rem;
+      }
+    }
+  }
+  &__side-image {
+    align-items: flex-end;
+    background-color: $green-yellow;
+    display: flex;
+  }
+  &__login {
+    color: black;
+    text-decoration: underline;
+    transition: all 0.3s;
+    &:hover {
+      transition: all 0.3s;
+    }
+  }
+  &__form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px 10px 30px;
+    @media screen and (max-width: 992px) {
+      padding: 0;
+    }
+    &--twice {
+      padding: 0 60px 20px 60px;
+      & h1,
+      & p {
+        margin-bottom: 30px;
+      }
+      @media screen and (max-width: 768px) {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px 5px 10px;
+      }
+      @media screen and (max-width: 1024px) {
+        & p:last-child {
+          text-align: center;
+        }
+      }
+    }
+  }
+  &__columns {
+    & .col-4,
+    & .col-sm-6,
+    & .col-md-6,
+    & .col-lg-6,
+    & .col-xl-6,
+    & .col-12 {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+      @media screen and (max-width: 768px) {
+        margin-bottom: 30px;
+        justify-content: center;
+      }
+    }
+  }
+  &__input-wrapper {
+    width: 100%;
+    @media screen and (max-width: 1024px) and (min-width: 768px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 768px) and (min-width: 495px) {
+      width: 80%;
+    }
+    @media screen and (max-width: 495px) {
+      width: 100%;
+    }
+    & label {
+      background-color: transparent;
+      font-size: 12px;
+      left: 8%;
+      padding: 0 5px;
+      position: absolute;
+      top: -10px;
+      transition: all 0.3s;
+      z-index: 10;
+      @media screen and (max-width: 1199px) {
+        left: 8%;
+      }
+      @media screen and (max-width: 992px) and (min-width: 769px) {
+        left: 5%;
+      }
+      @media screen and (max-width: 768px) {
+        left: 15%;
+      }
+      &::before {
+        background-color: white;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(-5%, 0);
+        width: 110%;
+        z-index: -1;
+      }
+    }
+    & input,
+    & select {
+      background-color: white;
+      height: 50px;
+      line-height: 50px;
+      transition: all 0.3s;
+      width: 100%;
+      &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.8;
+        transition: all 0.3s;
+      }
+    }
+    & input:focus,
+    & select:focus {
+      border: 1px solid $blue-purple;
+      transition: all 0.3s;
+    }
+    & input:focus ~ label,
+    & select:focus ~ label {
+      color: $blue-purple;
+      transition: all 0.3s;
+    }
+  }
+  &__logo {
+    height: 70px;
+    margin: 30px 0;
+    width: 110px;
+  }
+  &__submit {
+    display: flex;
+    justify-content: flex-start;
+    transition: all 0.3s;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
+    & button {
+      color: white !important;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      width: 100%;
+      @media screen and (max-width: 1024px) and (min-width: 768px) {
+        width: 100%;
+      }
+      @media screen and (max-width: 768px) and (min-width: 495px) {
+        width: 60%;
+      }
+      @media screen and (max-width: 495px) {
+        width: 100%;
+      }
+      &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.8;
+        transition: all 0.3s;
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  #cvv:focus {
+    .payment__card {
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+.tab-pane {
+  min-height: 80vh;
+}

@@ -1,0 +1,448 @@
+.cart {
+	display: flex;
+	.nav-tabs {
+		border: 0;
+	}
+	&__cashback {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 1rem;
+		& p {
+			margin-bottom: 5px;
+		}
+		& img {
+			display: flex;
+			margin: auto;
+			max-height: 130px;
+		}
+		@media screen and (max-width: 600px) {
+			flex-direction: column;
+		}
+	}
+	&__tabs {
+		justify-content: flex-end;
+		margin: 0 0 50px;
+		@media screen and (max-width: 700px) {
+			justify-content: center;
+		}
+		@media screen and (max-width: 620px) {
+			margin-bottom: 20px;
+		}
+	}
+	&__tabs .nav-link {
+		align-items: center;
+		align-self: flex-end;
+		border: 0.5px solid #A2A2A2;
+		border-radius: 50px;
+		color: #A2A2A2;
+		display: flex;
+		height: 45px;
+		justify-content: center;
+		min-width: 180px;
+		position: relative;
+		transition: all 0.3s;
+		@media screen and (max-width: 1220px) {
+			min-width: unset;
+			&:not(.active) span {
+				display: none;
+			}
+		}
+		@media screen and (max-width: 710px) {
+			& span {
+				display: none;
+			}
+		}
+		@media screen and (max-width: 620px) {
+			height: 35px;
+			width: 35px;
+		}
+	}
+	&__tabs li:not(:last-child) .nav-link { 
+		margin-right: 75px;
+		@media screen and (max-width: 1310px) {
+			margin-right: 50px;
+		}
+		@media screen and (max-width: 457px) {
+			margin-right: 40px;
+		}
+		@media screen and (max-width: 320px) {
+			margin-right: 20px;
+		}
+	}
+	&__tabs .active {
+		border: 0.5px solid $blue-purple !important;
+		color: $blue-purple !important;
+		&::after {
+			background-color: $blue-purple !important;
+		}
+	}
+	&__tabs {
+		& .nav-link {
+			&:not(.active) {
+				i {
+					@media screen and (max-width: 1220px) {
+						margin-right: 0 !important;
+					}
+				}
+			}
+			@media screen and (max-width: 710px) {
+				i {
+					margin-right: 0 !important;
+				}
+			}
+			&::after {
+				align-items: center;
+				background-color: #A2A2A2;
+				border-radius: 50px;
+				color: white;
+				content: '';
+				display: flex;
+				font-size: 0.8rem;
+				height: 20px;
+				justify-content: center;
+				left: 0;
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				transition: all 0.3s;
+				width: 20px;
+				@media screen and (max-width: 620px) {
+					display: none;
+				}
+			}
+		}
+		& li {
+			font-family: $font-one;
+		}
+		& li:nth-child(1) .nav-link::after{
+			content: '1';
+		}
+		& li:nth-child(2) .nav-link::after {
+			content: '2';
+		}
+		& li:nth-child(3) .nav-link::after {
+			content: '3';
+		}
+		& li:nth-child(4) .nav-link::after {
+			content: '4';
+		}
+	}
+	&__tabs li:not(:first-child) .nav-link::before {
+		color: #A2A2A2;
+		content: '-----';
+		font-size: 2rem;
+		height: 1px;
+		left: -43px;
+		position: absolute;
+		top: 30%;
+		transform: translate(-50%, 50%);
+		@media screen and (max-width: 1310px) {
+			content: '---';
+			left: -29px;
+			top: 25%;
+		}
+		@media screen and (max-width: 457px) {
+			left: -20px;
+		}
+		@media screen and (max-width: 320px) {
+			content: '-';
+			left: -10px;
+		}
+	}
+	&__tabs .nav-link:hover {
+		border: 0.5px solid $grey;
+		color: $grey;
+		transition: all 0.3s;
+		&::after {
+			background-color: $grey;
+			transition: all 0.3s;
+		}
+	}
+	&__tabs .disabled {
+		border: 0.5px solid #B0B0B0 !important;
+		color: #B0B0B0 !important;
+		cursor: not-allowed;
+		&::after {
+			cursor: not-allowed;
+		}
+		&::before {
+			cursor: not-allowed;
+		}
+		&:hover {
+			border: 0.5px solid #B0B0B0 !important;
+			color: #B0B0B0 !important;
+			cursor: not-allowed;
+			&::after {
+				border: 0.5px solid #B0B0B0 !important;
+				color: #B0B0B0 !important;
+			}
+			&::before {
+				color: #A2A2A2;
+			}
+		}
+	}
+	&__tabs .finished {
+		border: 0.5px solid $green-yellow !important;
+		color: $green-yellow !important;
+		&::after {
+			background-color: $green-yellow !important;
+		}
+		&::before {
+			color: $green-yellow !important;
+		}
+	}
+	.active {
+		display: flex;
+	}
+	& aside {
+		border: 1px solid #b2b2b2;
+		border-radius: 18px;
+		display: flex;
+		flex-direction: column;
+		font-family: $font-one;
+		justify-content: space-between;
+		min-height: 400px;
+		padding: 20px 20px 15px;
+		& li {
+			& span:last-child {
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+		& ul p {
+			font-family: $font-one;
+		}
+		@media screen and (max-width: 1024px) {
+			margin-bottom: 40px;
+		}
+	}
+	&__price-sign {
+		font-size: 0.7rem;
+		font-weight: bold;
+		font-family: $font-two;
+	}
+	&__bold-text {
+		font-size: 1.2rem;
+		font-weight: bold;
+		font-family: $font-two;
+	}
+	&__items {
+		margin-bottom: 10px;
+	}
+	& hr {
+		border: 1px solid $description;
+		margin: 0;
+		width: 100%;
+	}
+	&__submit {
+		color: $grey !important;
+		margin-bottom: 30px;
+		text-transform: uppercase;
+		width: 100%;
+		&[disabled] {
+			cursor: not-allowed;
+			opacity: 0.6;
+			transition: all 0.3s;
+			&:hover {
+				box-shadow: none;
+			}
+		}
+	}
+	&__buy-one-more {
+		align-items: center;
+		background-color: $description;
+		border: 1px dashed #A2A2A2;
+		border-radius: 18px;
+		display: flex;
+		height: 100px;
+		justify-content: center;
+		margin-bottom: 80px;
+		opacity: 0.8;
+		transition: all 0.3s;
+		width: calc(100% - 35px);
+		@media screen and (max-width: 1024px) {
+			margin-bottom: 40px;
+		}
+		@media screen and (max-width: 768px) {
+			width: 100%;
+		}
+		& p {
+			color: $blue-purple;
+			font-family: $font-one;
+		}
+		& span {
+			align-items: center;
+			background-color: transparent;
+			border: 1px dashed $blue-purple;
+			border-radius: 50px;
+			color: $blue-purple;
+			display: flex;
+			height: 30px;
+			justify-content: center;
+			margin-right: 20px;
+			transition: all 0.3s;
+			width: 30px;
+			@media screen and (max-width: 1220px) {
+				margin-right: 10px;
+			}
+		}
+		&:hover {
+			border: 1px solid #A2A2A2;
+			opacity: 0.8;
+			transition: all 0.3s;
+			& span {
+				border: 1px solid #A2A2A2;
+			}
+		}
+	}
+	& .change_login {
+		background-color: white;
+		border: none;
+		outline: none;
+		text-decoration: none;
+	}
+	&__items-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		min-height: 400px;
+		@media screen and (max-width: 768px) {
+			min-height: unset;
+			& > div:first-child {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+	}
+	&__no-products {
+		align-items: center;
+		color: $blue-purple;
+		display: flex;
+		font-family: $font-two;
+		font-size: 2rem;
+		height: 150px;
+		justify-content: center;
+		width: 100%;
+		@media screen and (max-width: 768px) {
+			font-size: 1.3rem;
+			height: 100px;
+		}
+	}
+	#eventohj .ui-section-title--black {
+		margin-bottom: 60px;
+		margin-top: 50px;
+		text-align: center;
+		@media screen and (max-width: 768px) {
+			margin-bottom: 25px;
+			margin-top: 20px;
+		}
+	}
+	&__step {
+		font-family: $font-three;
+		font-size: 1.5rem;
+		margin-bottom: 50px;
+		& i {
+			margin-right: 5px;
+		}
+		@media screen and (max-width: 620px) {
+			font-size: 1.3rem;
+			margin-bottom: 20px;
+			order: 2
+		}
+	}
+	&__wrapper {
+		@media screen and (max-width: 620px) {
+			flex-direction: column;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.cupon_input {
+	position: relative;
+	& button {
+    background-color: transparent;
+    border: 0;
+    color: $red-pink;
+    font-size: 1.2rem;
+		opacity: 0;
+    outline: none;
+		position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translate(0, -50%);
+		visibility: hidden;
+    z-index: 100;
+	}
+	& input[disbaled] {
+		cursor: not-allowed;
+	}
+}
+
+.cart_pix {
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+.cupon_active {
+	& button {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+#eventohj {
+	@media screen and (max-width: 768px) {
+		text-align: center;
+	}
+}
+
+#eventohj img {
+	display: flex;
+	margin: 0 auto;
+	margin-bottom: 40px;
+	max-height: 200px;
+	width: auto;
+}
+
+#eventohj .eventohj-button {
+	margin-bottom: 30px;
+}
+
+.selected-label {
+	background-color: $blue-purple;
+	border: 1px solid $blue-purple;
+	box-shadow: 0px 0px 15px $blue-purple;
+	color: white;
+	transition: all 0.3s;
+}
+
+.checkin-checkbox {
+	align-items: center;
+	display: flex;
+	width: 50%;
+	@media screen and (max-width: 768px) {
+		width: 100%;
+	}
+	& input {
+		background-color: #231f20;
+    border: 1px solid #e8e7e7;;
+    box-sizing: border-box;
+    border-radius: 5px;
+		display: flex;
+    height: 28px;
+    margin-bottom: 0;
+    margin-right: 10px;
+    width: 48px;
+		@media screen and (max-width: 768px) {
+			width: 30px;
+		}
+	}
+	& label {
+		width: 100%;
+		@media screen and (max-width: 768px) {
+			font-size: 14px;
+		}
+	}
+}
